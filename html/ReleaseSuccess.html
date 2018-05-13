@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>发布成功</title>
+    <style>
+      body,html{
+        background-color: #fff!important;
+      }
+      .success_txt{
+        width:100%;
+        height:120px;
+        margin:50px auto 0px;
+        background-image: url('../image/icon/release_success.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 64px 64px;
+      }
+      .success_btn{
+        width:40%;
+        height:45px;
+        text-align: center;
+        line-height: 45px;
+        font-size:16px;
+        color:#00CC00;
+        border:1px solid #00CC00;
+        border-radius: 5px;
+        margin:0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success_txt"></div>
+    <div class="success_btn">返回首页</div>
+    <script src="../script/api.js"></script>
+    <script src="../public/js/app_public.js"></script>
+    <script type="text/javascript">
+      apiready = function(){
+        getClassDom('success_btn').addEventListener('click',function(){api.closeWin()},true);
+      }
+    </script>
+  </body>
+
+</html>

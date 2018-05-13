@@ -1,0 +1,387 @@
+html,body{background-color: #fff;}
+.app_header{width:100%;position: fixed;top:0px;left:0px;z-index: 999;}
+.App_container{width:100%;}
+/*轮播*/
+.xuqiu_focus_container{width:100%;margin-top: 50px;}
+#xuqiu_focus{width:100%;}
+/*需求标题*/
+.xuqiu_title{
+  width:90%;
+  height:50px;
+  text-align: center;
+  line-height: 50px;
+  font-size:18px;
+  color:#000;
+  margin:20px auto 20px;
+  border-bottom:1px solid #eee;
+}
+
+/*需求详情*/
+.xuqiu_xiangqing{
+  width:90%;
+  text-align: left;
+  text-indent: 40px;
+  font-size:16px;
+  color:#c0c0c0;
+  margin:0px auto 20px;
+  border-bottom:1px solid #eee;
+}
+
+/*需求金额和需求类型的弹性盒子*/
+.xuqiu_money_type_flex{
+  width:90%;
+  margin:0px auto 20px;
+  font-size:14px;
+  display: flex;
+  justify-content: center;
+}
+.xuqiu_money_type_flex div{width:50%;padding:10px;}
+.xuqiu_type{border-right:1px solid #eee;}
+.xuqiu_type_span{color:#c0c0c0;}
+.xuqiu_money_span{color:#f00;font-size:12px;}
+
+/*发布人信息标题*/
+.fabu_people_msg_title{
+  width:90%;
+  height:40px;
+  color:#333;
+  text-align: center;
+  line-height: 40px;
+  margin:0px auto 20px;
+}
+/*过期时间和状态*/
+.guoqi_time{
+  width:85%;
+  height:50px;
+  text-align: left;
+  line-height: 50px;
+  font-size:16px;
+  color:#333;
+  margin:20px auto 0px;
+}
+.xuqiu_state{
+  width:85%;
+  height:50px;
+  text-align: left;
+  line-height: 50px;
+  font-size:16px;
+  margin:0 auto;
+}
+/*详细地址*/
+.xiangxi_dizhi{
+  width:85%;
+  height:50px;
+  margin:0 auto;
+  text-align: left;
+  line-height: 50px;
+  color:#333;
+  font-size:16px;
+  border-bottom:1px solid #eee;
+}
+/*发布人信息*/
+.fabu_people_msg{width:90%;margin:0px auto 20px;border-bottom:1px solid #eee;display: flex;}
+.fabu_people_msg_img{
+  width:70px;
+  height:50px;
+  border-radius: 50px;
+  flex-grow: 0;
+  padding-right:20px;
+}
+.fabu_people_msg_img img{
+  width:50px;
+  height:50px;
+  border:1px solid #c0c0c0;
+  box-shadow: 0 0 10px #c0c0c0;
+  border-radius: 50px;
+}
+.fabu_people_msg_content{flex-grow: 1;}
+
+
+/*需求的历史记录*/
+.this_xuqiu_record{
+  width:90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ccc;
+  margin:20px auto;
+  padding:15px;
+}
+.operation_list_li{font-size:16px;color:#333;height:38px;display: flex;border-bottom: 1px solid #eee;margin-bottom: 20px;}
+.list_user_img{width:38px;height:38px;border-radius: 50px;border:1px solid #c0c0c0;flex-flow: 0;}
+.list_user_operation{font-size:18px;color:#39f;}
+.operation_list_li_span{flex-flow: 1;line-height: 38px;padding-left: 20px;}
+
+
+/*支付按钮*/
+.payment_order_btn{display: none;background-color: #39f;color:#fff;width:90%;height:40px;margin:20px auto;text-align: center;line-height: 40px;font-size: 16px;border-radius: 5px;}
+
+/*取消支付*/
+.cancel_pay_btn{
+  width:90%;
+  height:40px;
+  background-color: #f00;
+  text-align: center;
+  line-height: 40px;
+  margin:20px auto;
+  font-size: 16px;
+  border-radius: 5px;
+  display: none;
+  color:#fff;
+}
+
+/*选择服务方的列表*/
+.none_accepted_assignment{width:100%;height:50px;color:#c0c0c0;font-size:12px;text-align: center;line-height: 50px;}
+.select_service{
+  width:90%;
+  padding:20px 15px;
+  margin:20px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #c0c0c0;
+  display:none;
+}
+.select_service_title{width:100%;height:40px;font-size:18px;color:#333;text-align: left;line-height: 40px;border-bottom: 1px solid #c0c0c0;}
+.select_service_li{
+  width:100%;
+  height:38px;
+  display: flex;
+  justify-content: space-around;
+  margin:15px 0px;
+  border-bottom:1px solid #eee;
+}
+.services_img{width:38px;height:38px;border-radius: 50px;border:1px solid #eee;}
+.services_name{color:#333;font-size:14px;line-height: 38px;}
+.select_this_btn{width:100px;height:30px;color:#fff;background-color: #39f;text-align: center;line-height: 30px;font-size:14px;border-radius: 5px;margin-top:4px;}
+
+
+/*确认完成，和拒绝完成*/
+.confirmation_and_rejection{
+  width:90%;
+  margin:20px auto;
+  display:none;
+}
+/*确认完成*/
+.confirmation_btn,.rejection_btn{
+  width:100%;
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+  color:#fff;
+  background-color: #39f;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.rejection_btn{
+  background-color: #f00;
+  margin-bottom: 20px;
+}
+
+/*退款*/
+.refund_btn{
+  width:90%;
+  height:40px;
+  background-color: #f00;
+  text-align: center;
+  line-height: 40px;
+  color:#fff;
+  font-size:16px;
+  margin:20px auto;
+  border-radius: 5px;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*订单详情，就是显示订单金额*/
+.order_money_container{
+  width:95%;
+  height:40px;
+  margin:0 auto;
+}
+.order_money_view{
+  width:100%;
+  height:40px;
+  position: relative;
+}
+.order_money_view_left{
+  width:50%;
+  height:40px;
+  text-align: left;
+  line-height: 40px;
+  position: absolute;
+  top:0px;
+  left:0px;
+  color:#333;
+  font-size:16px;
+}
+.order_money_view_right{
+  width:50%;
+  height:40px;
+  text-align: right;
+  line-height: 40px;
+  position: absolute;
+  top:0px;
+  right:0px;
+  color:#f3290e;
+  font-size:18px;
+}
+
+
+/*选择支付方式弹层*/
+.select_pay_method_mask{
+  width:100%;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:100;
+  display:none;
+}
+.select_pay_method{
+  width:100%;
+  height:285px;
+  background-color: #fff;
+  position: fixed;
+  bottom:-300px;
+  left:0px;
+  z-index:101;
+  transition: all 0.3s;
+}
+.select_pay_method_title{
+  width:95%;
+  height:40px;
+  line-height: 40px;
+  text-align: center;;
+  font-size:16px;
+  color:#999;
+  margin:15px auto 0px;
+}
+
+
+/*支付宝支付*/
+.select_pay_alipay,.select_pay_balance{
+  height:48px;
+  border-bottom:1px solid #eee;
+}
+.select_pay_wx{
+  height:48px;
+}
+/*支付logo的尺寸*/
+.pay_iocn_div{
+  display:inline-block;
+  width:86%;
+  height:48px;
+}
+
+.zhifu_icon_public_style{
+  height:48px;
+  line-height: 48px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.zhifu_icon_public_style img{
+  display: block;
+  width:48px;
+  height:48px;
+  flex-grow: 0;
+}
+.zhifu_icon_public_style span{
+  padding-left:15px;
+  color:#666;
+  flex-grow: 1;
+}
+
+.pay_iocn_balance_span{
+  line-height: 48px;
+  font-size:14px;
+  color:#333;
+}
+
+/*选择按钮的居中*/
+.public_style_ipt{
+  margin-top:8px;
+  margin-left:10px;
+  margin-right:10px;
+}
+/*确认支付按钮*/
+.confirm_pay_btn{
+  width:100%;
+  height:45px;
+  margin:15px auto 0px;
+  text-align: center;
+  line-height: 45px;
+  font-size:18px;
+  color:#fff;
+  letter-spacing:20px;
+  background-color: #ec7039;
+}
+/*支付密码输入的模态*/
+.user_pay_pasw_mask{
+  width:100%;
+  background-color: #fff;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index: 99998;
+  display:none;
+}
+.user_pay_pasw_input_div{
+  width:85%;
+  height:160px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  position: fixed;
+  z-index: 99999;
+  top:15%;
+  left:7.5%;
+  box-shadow: 0px 0px 10px #fff;
+  display:none;
+}
+.user_pay_pasw_input_title{
+  width:100%;
+  height:57px;
+  text-align: center;
+  line-height: 57px;
+  color:#999;
+  font-size:14px;
+}
+input[name="user_pay_pasw_input"]{
+  width:100%;
+  height:45px;
+  margin:0 auto;
+  border-top:1px solid #FFF;
+  border-bottom:1px solid #FFF;
+  letter-spacing:30px;
+  padding-left:40px;
+  border-bottom:1px solid #C0C0C0;
+}

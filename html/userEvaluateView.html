@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>用户评价</title>
+    <style>
+      body,html{background-color: #fff;}
+      /*头部返回的设置*/
+      .page_header_return{
+        width:48px;
+        height:48px;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        top:5px;
+        left:15px;
+        background-image: url('../image/icon/zhiyuanfanhuiheise.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+      }
+      .evaluate_list_container{width:90%;height:500px;margin:50px auto;}
+      .evaluate_ul{width:100%;}
+      .evaluate_li{
+        width:100%;
+        font-size:0px;
+        margin-bottom:20px;
+      }
+      .evaluate_li_img{
+        width:15%;
+        height:50px;
+
+        display: inline-block;
+        vertical-align: top;
+      }
+      .evaluate_li_img img{
+        display: block;
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+      }
+      .evaluate_li_content{
+        width:85%;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .evaluate_li_content_name{font-size:16px;color:#333;}
+      .evaluate_li_content_time{font-size:14px;color:#c0c0c0;}
+      .evaluate_li_content_text{font-size:14px;color:#999;}
+      .no_data{width:90%;height:50px;text-align: center;line-height: 50px;color:#c0c0c0;font-size:16px;margin:80px auto;}
+    </style>
+  </head>
+  <body>
+    <!-- 返回按钮 -->
+    <div class="page_header_return"></div>
+
+
+    <!-- 评价列表 -->
+    <div class="evaluate_list_container">
+      <ul class="evaluate_ul">
+
+      </ul>
+    </div>
+
+
+
+
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script>
+    apiready = function(){
+        var win_height = api.winHeight;
+        var jq=jQuery.noConflict();
+        var chak_id = api.pageParam.chak_id;
+        //全局用户登录信息缓存
+        try {var token = JSON.parse(api.getPrefs({sync: true,key: 'user_login_status'})).access_token;} catch (e) {console.log(JSON.stringify(e));};
+        jq(function(){
+
+          //获取评论数据
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/user/"+chak_id+"/comments",
+            "method": "GET",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": "Bearer " + token,
+              "Cache-Control": "no-cache"
+            }
+          }
+
+          jq.ajax(settings).done(function (res) {
+            if(res.message === 'success'){
+              var data = res.response;
+              var comments_list = data.data;
+              if(comments_list.length === 0){
+                jq('.evaluate_ul').append('<div class="no_data">暂时没有人对他做出评价哦~~</div>');
+              }else{
+                jq('.evaluate_ul').html(' ');
+
+                for(var i = 0;i < comments_list.length;i++){
+                  var user_img_url = '';
+                  if(comments_list[i].from_user.image === null){user_img_url = '../image/icon/noimage.png';}else{user_img_url = 'http://47.104.73.41'+comments_list[i].from_user.image;}
+                  var html_str = '<li class="evaluate_li">'+
+                    '<div class="evaluate_li_img">'+
+                      '<img info_id="'+comments_list[i].from_user_id+'" class="evaluate_li_img_tu" src="'+user_img_url+'" />'+
+                    '</div>'+
+                    '<div class="evaluate_li_content">'+
+                      '<div class="evaluate_li_content_name">'+comments_list[i].from_user.name+'</div>'+
+                      '<div class="evaluate_li_content_time">'+comments_list[i].updated_at+'</div>'+
+                      '<div class="evaluate_li_content_text">'+comments_list[i].text+'</div>'+
+                    '</div>'+
+                  '</li>';
+                  jq('.evaluate_ul').append(html_str);
+                }
+              }
+            }
+          });
+
+          //点击头像去个人展示页面
+          jq('.evaluate_ul').on('click',function(e){
+            var _id = jq(e.target).attr('info_id');
+            if(_id !== undefined){
+              api.openWin({
+                  name: 'checkUserInfo',
+                  slidBackEnabled:false,
+                  reload:true,
+                  url: '../html/checkUserInfo.html',
+                  pageParam: {
+                      id:_id
+                  }
+              });
+            }
+          });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          //返回上一页
+          jq('.page_header_return').on('click',function(){api.closeWin();});
+        });
+    }
+  </script>
+</html>

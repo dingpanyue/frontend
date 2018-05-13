@@ -1,0 +1,145 @@
+html,body{background-color: #fff;}
+
+/*头部返回的设置*/
+.page_header_return{
+  width:48px;
+  height:48px;
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  top:5px;
+  left:15px;
+  background-image: url('../image/icon/zhiyuanfanhuiheise.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+}
+
+
+/*页面主体的宽度设置*/
+.page_body_container{
+  width:90%;
+  margin:0 auto;
+  padding-top: 60px;
+}
+/*个人说明*/
+.user_personal_note{
+  width:100%;
+  height:100px;
+  background-color: #eee;
+}
+#user_personal_note_textarea{
+  display: block;
+  width:96%;
+  height:100px;
+  font-size:14px;
+  padding: 2% 15px;
+}
+
+/*用户擅长的领域*/
+.user_good_field{
+  width:100%;
+  margin-top:15px;
+}
+
+.user_good_field_title,.user_exhibition_img_title{
+  width:100%;
+  height:40px;
+  text-align: left;
+  line-height: 40px;
+  color:#333;
+  font-size:16px;
+}
+.user_good_field_selected{
+  width:100%;
+  margin-top: 10px;
+}
+.user_good_field_elected{
+  width:100%;
+  margin-top:20px;
+}
+.user_good_field_elected_ul,.user_good_field_selected_ul{
+  display: block;
+  width:100%;
+}
+
+.user_good_field_elected_ul li{
+  width:60px;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  color:#888;
+  font-size:14px;
+  border:1px solid #888;
+  border-radius: 50px;
+  margin-right:6px;
+  margin-top:15px;
+  float: left;
+}
+.user_good_field_selected_ul li{
+  width:60px;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  color:#39f;
+  font-size:14px;
+  margin-right:6px;
+  margin-top:15px;
+  float: left;
+}
+
+
+/*设置用户展示图片*/
+.user_exhibition_img{
+  width:100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.user_exhibition_img_container{
+  width:100%;
+}
+
+.user_exhibition_img_ul img{
+  display: block;
+  width:90px;
+  height:60px;
+  margin-right: 17px;
+  margin-top: 10px;
+  display:inline-block;
+  vertical-align: top;
+}
+.user_add_img{
+  width:100%;
+  height:40px;
+  color:#fff;
+  font-size:16px;
+  text-align: center;
+  line-height: 40px;
+  display:inline-block;
+  vertical-align: top;
+  margin:20px auto 15px;
+  background-color: #00FF66;
+  border-radius: 5px;
+}
+/*提交按钮*/
+.user_info_submit{
+  width:100%;
+  height:40px;
+  background-color: #39f;
+  text-align: center;
+  line-height: 40px;
+  font-size:16px;
+  color:#fff;
+  margin:20px auto;
+  border-radius: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+/*asdasd*/

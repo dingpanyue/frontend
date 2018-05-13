@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>资料设置</title>
+    <style>
+      body,html{background-color: #fff;}
+      .app-header{background-color: #333;border:0px solid rgba(0,0,0,0);}
+      .click_return{display: block;width:32px;height:32px;position: fixed;top:10px;left:15px;}
+      .page_input_container{width:90%;padding:20px 0px;margin:0 auto;}
+      .page_img_push{width:100%;height:50px;}
+      .page_img_push_position{width:100%;height:100px;position: relative;}
+      .page_img_push_txt{font-size:18px;position: absolute;top:0px;left:0px;width:100px;height:50px;padding-left:20px;line-height: 50px;}
+      .page_img_push_icon{position: absolute;top:0px;right:0px;line-height: 50px;}
+      .page_img_push_img_preview{width:50px;height:50px;position: absolute;top:0px;right:50px;border-radius: 50px;}
+      .page_img_push_img_preview img{display: block;width:50px;height:50px;border-radius: 50px;}
+      .aui-list-header{background-color: #fff!important;text-align: center!important;border-bottom: 1px solid #eee;}
+      .page_submit_data{width:90%;height:50px;margin:20px auto 0px;background-color: #39f;border-radius: 10px;text-align: center;line-height: 50px;font-size:16px;color:#fff;}
+    </style>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav app-header">
+      <a class="aui-pull-left aui-btn app-goIndex">
+          <span class="aui-iconfont aui-icon-left"></span>
+          <span>返回</span>
+      </a>
+      <div class="aui-title">资料设置</div>
+    </header>
+
+    <div class="page_input_container">
+      <!-- 头像设置 -->
+      <div class="page_img_push ">
+        <div class="page_img_push_position">
+          <div class="page_img_push_txt">头像</div>
+          <div isSendImg="no" class="page_img_push_img_preview">
+
+          </div>
+          <div class="page_img_push_icon">
+            <i class="aui-iconfont aui-icon-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 昵称和隐私 -->
+      <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-form-list">
+          <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label">昵称：</div>
+                <div id="user_name" class="aui-list-item-input">
+                    <input type="text" placeholder="请输入昵称">
+                </div>
+            </div>
+          </li>
+          <li class="aui-list-header">隐私：是否展示？（点击可关闭）</li>
+          <li class="aui-list-item">
+              <div class="aui-list-item-inner">
+                  <div class="aui-list-item-label">
+                      电话：
+                  </div>
+                  <div id="isShowPhone" class="aui-list-item-input">
+                      <input type="checkbox" class="aui-switch" checked>
+                  </div>
+              </div>
+          </li>
+          <li class="aui-list-item">
+              <div class="aui-list-item-inner">
+                  <div class="aui-list-item-label">
+                      地址：
+                  </div>
+                  <div id="isShowAddress" class="aui-list-item-input">
+                      <input type="checkbox" class="aui-switch" checked>
+                  </div>
+              </div>
+          </li>
+          <li class="aui-list-item">
+              <div class="aui-list-item-inner">
+                  <div class="aui-list-item-label">
+                      地区：
+                  </div>
+                  <div id="isShowRegion" class="aui-list-item-input">
+                      <input type="checkbox" class="aui-switch" checked>
+                  </div>
+              </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 提交按钮 -->
+    <div class="page_submit_data">提交</div>
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script>
+    apiready = function(){
+      var win_height = api.winHeight;
+      var jq=jQuery.noConflict();
+      var toast = new auiToast({});
+      //全局用户登录信息缓存
+      try {var token = JSON.parse(api.getPrefs({sync: true,key: 'user_login_status'})).access_token;} catch (e) {console.log(JSON.stringify(e));};
+
+      jq(function(){
+
+        //设置表单默认值
+        //请求数据
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/user/self/info",
+          "method": "GET",
+          "headers": {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Bearer " + token,
+            "Cache-Control": "no-cache"
+          }
+        }
+
+        jq.ajax(settings).done(function (res) {
+          if(res.message === 'success'){
+            var data = res.response;
+
+            //设置默认的头像
+            var __user_img = '';
+            if(data.image === null){
+              __user_img = '../image/icon/noimage.png';
+            }else{
+              __user_img = 'http://47.104.73.41' + data.image;
+            }
+            jq('.page_img_push_img_preview').html('');
+            var _img = jq('<img src="'+__user_img+'">');
+            jq('.page_img_push_img_preview').append(_img);
+
+            //设置默认的昵称
+            jq('#user_name input').val(data.name);
+
+
+          }else{
+            toast.fail({title:"请稍后再试",duration:4000});
+          }
+        });
+
+
+
+
+
+
+
+        /*头像设置*/
+        jq('.page_img_push').on('click',function(){
+          api.getPicture({
+              sourceType: 'album',
+              encodingType: 'jpg',
+              mediaValue: 'pic',
+              destinationType: 'url',
+              allowEdit: true,
+              preview:true,
+              quality: 50,
+              targetWidth: 100,
+              targetHeight: 100,
+              saveToPhotoAlbum: false
+          }, function(ret, err) {
+              if (ret) {
+                  var __url = ret.data;
+                  jq('.page_img_push_img_preview').html('');
+                  var _img = jq('<img src="'+__url+'">');
+                  jq('.page_img_push_img_preview').append(_img);
+
+                  var img_data = {'upFile': ret.data}
+                  api.ajax({
+                      url: 'http://47.104.73.41/api/mobile-terminal/rest/v1/user/upload',
+                      headers:{
+                        "Authorization": "Bearer " + token
+                      },
+                      method: 'post',
+                      data: {
+                          files:img_data
+                      }
+                  },function(ret, err){
+                      if (ret) {
+                        toast.success({
+                            title:"头像设置成功",
+                            duration:4000
+                        });
+                        api.sendEvent({
+                            name: 'materialSettingsSendImg',
+                            extra: {
+                                data: 'value1'
+                            }
+                        });
+                      } else {
+                        toast.success({
+                            title:"头像设置成功",
+                            duration:4000
+                        });
+                        api.sendEvent({
+                            name: 'materialSettingsSendImg',
+                            extra: {
+                                data: 'value1'
+                            }
+                        });
+                      }
+                  });
+              } else {
+                  console.log('选取头像出错');
+              }
+          });
+        });
+
+        /*修改昵称*/
+        jq('.page_submit_data').on('click',function(){
+
+          var user_name = jq('#user_name input').val();
+
+          if(user_name !== ''){
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/user/name",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Bearer " + token,
+                "Cache-Control": "no-cache"
+              },
+              "data": {
+                "name": user_name
+              }
+            }
+
+            jq.ajax(settings).done(function (res) {
+              if(res.message === 'success'){
+                api.sendEvent({name: 'materialSettingsSendImg',extra: {data: 'value1'}});
+                toast.success({title:"昵称设置成功",duration:400});
+              }
+            });
+          }else{
+              toast.fail({title:"没有更改！",duration:4000});
+          }
+        });
+
+        function getCheckboxVal(){
+          var isShowPhone = jq('#isShowPhone input').is(':checked')?1:0;
+
+          var isShowAddress = jq('#isShowAddress input').is(':checked')?1:0;
+
+          var isShowRegion = jq('#isShowRegion input').is(':checked')?1:0;
+
+          return {
+            isShowPhone:isShowPhone,
+            isShowAddress:isShowAddress,
+            isShowRegion:isShowRegion
+          }
+        }
+
+        function setUserPrivacy(obj){
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/user/user-configs",
+            "method": "POST",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": "Bearer " + token,
+              "Cache-Control": "no-cache"
+            },
+            "data": {
+              "show_mobile": obj.isShowPhone,
+              "show_address": obj.isShowAddress,
+              "show_region": obj.isShowRegion
+            }
+          }
+
+          jq.ajax(settings).done(function (res) {
+            if(res.message === 'success'){
+                toast.success({
+                    title:"设置成功",
+                    duration:1000
+                });
+            }
+          });
+        }
+        /*checkBox值改变事件*/
+        jq('#isShowPhone input').on('change',function(){
+          var data_obj = getCheckboxVal();
+          setUserPrivacy(data_obj);
+        });
+        jq('#isShowAddress input').on('change',function(){
+          var data_obj = getCheckboxVal();
+          setUserPrivacy(data_obj);
+        });
+        jq('#isShowRegion input').on('change',function(){
+          var data_obj = getCheckboxVal();
+          setUserPrivacy(data_obj);
+        });
+
+
+
+
+
+
+        jq('.aui-btn').on('click',function(){api.closeWin();});
+
+      });
+    }
+  </script>
+</html>

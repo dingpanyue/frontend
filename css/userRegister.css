@@ -1,0 +1,96 @@
+body,html{
+  background-color: #fff;
+}
+.app-top-bar{
+  background-color: #fff;
+  color:#333;
+}
+.app_page_title{
+  width:100%;
+  height:50px;
+  color:#333;
+  font-size:24px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+
+
+/*注册表单的容器*/
+.collect-data-container{
+  background-color: #fff;
+  width:85%;
+  margin:20px auto 0px;
+}
+
+.public-style-input{
+  width:100%;
+  height:60px;
+  /*border:1px solid #e0e0e0;
+  border-radius: 50px;*/
+  margin-top:20px;
+}
+.public-style-input input{
+  width:100%;
+  height:60px;
+  padding-left:20px;
+  font-size:14px;
+  border-bottom:1px solid #e0e0e0;
+}
+
+.user_verification_p_container{
+  width:100%;
+  font-size:14px;
+  border-bottom:1px solid #c0c0c0;
+  position: relative;
+}
+.user_verification_input{
+  width:70%;
+  height:60px;
+  display:block;
+  position: absolute;
+  bottom:0px;
+  left:0px;
+}
+.send-verification-btn{
+  position: absolute;
+  bottom:0px;
+  right:0px;
+  width:30%;
+  height:60px;
+  font-size:14px;
+  text-align: center;
+  line-height: 60px;
+  color:#39f;
+  transition: all 0.3s;
+}
+
+.user-input-submit{
+  width:100%;
+  height:60px;
+  margin:30px auto 0px;
+  text-align: center;
+  line-height: 60px;
+  color:#fff;
+  font-size:20px;
+  border-radius: 5px;
+  background-color: #333;
+}
+
+
+/*显示错误的框*/
+.error-prompt{
+  width:90%;
+  height:50px;
+  background-color: #333;
+  position: fixed;
+  bottom:-50px;
+  left:5%;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 50px;
+  color:#fff;
+  font-size:18px;
+  transition: all 0.3s;
+}

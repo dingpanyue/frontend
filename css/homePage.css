@@ -1,0 +1,279 @@
+body,html{font-family: '微软雅黑';}
+/*刷新页面的按钮*/
+.refresh_this_page{
+  width:38px;
+  height:38px;
+  background-image: url('../image/icon/shuaxin.png');
+  background-position: center center;
+  background-size: 28px 28px;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom:100px;
+  right:20px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px #ccc;
+  display: none;
+}
+/*定位*/
+#appUserLocationCity{
+  position: fixed;
+  top:13px;
+  left:15px;
+  z-index:11;
+  color:#fff;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*我的消息*/
+.app_my_information_container{
+  position: fixed;;
+  top:15px;
+  right:15px;
+  z-index: 11;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50px;
+  padding: 5px;
+}
+.app-my-information{
+  position: relative;
+}
+.app-my-information img{
+  display:block;
+  margin:0px auto;
+  width:24px;
+  height:24px;
+}
+/*新消息的标志*/
+.app-my-newsInformation-badge{
+  width:10px;
+  height:10px;
+  background-color: #d81e06;
+  position: absolute;
+  top:0px;
+  right:0px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#app_banner{
+  height:220px;
+}
+#app_banner img{
+  display:inline-block;
+  height:220px;
+  width:100%;
+}
+.app_banner_contarner{
+  width:100%;
+  height:220px;
+  position: relative;
+  z-index: 10;
+}
+.app_banner_position{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+/*伪装搜索框*/
+.app_disguise_search{
+  width:90%;
+  height:30px;
+  position: fixed;
+  top:170px;
+  left:5%;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.8);
+  background-image: url('../image/icon/inputsousuo2.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  z-index: 110;
+  padding-left: 40px;
+  line-height: 30px;
+  color:#888;
+  font-size:12px;
+  transition: all 0.3s;
+}
+.app_disguise_search_bg{
+  width:100%;
+  height:60px;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index: 9999;
+  background-color: #333;
+  display:none;
+}
+/*页面没有数据*/
+.page_no_msg{
+  width:100%;
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+  color:#c0c0c0;
+  font-size:14px;
+}
+
+/*分格导航容器*/
+.lattice_nav_container{
+  width:90%;
+  margin:0 auto;
+}
+.lattice_nav_ul{
+  width:100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  
+}
+.lattice_nav_ul_li{
+  width:16%;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.lattice_nav_ul_li_div{
+  width:48px;
+  height:48px;
+  text-align: center;
+  line-height: 48px;
+  font-size:18px;
+  font-weight: bold;
+  color:#fff;
+  border-radius: 50px;
+  box-shadow: -5px 5px 20px #c0c0c0;
+}
+
+/*最新订单*/
+.app_new_demand_container{
+  width:100%;
+  height:100px;
+
+}
+.app_new_demand_title{
+  width:100%;
+  height:50px;
+  font-size:18px;
+  color:#333;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  border-top:1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  letter-spacing:15px;
+}
+.app_new_demand_ul{width:100%;}
+
+
+/*li的样式*/
+.app_new_demand_ul_li{
+  width:100%;
+  margin:0px auto 10px;
+}
+.app_new_demand_ul_li_header{
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  font-size:14px;
+  border-bottom: 1px solid #ddd;
+  text-indent:20px;
+  color:#777;
+  background-color: #fff;
+}
+
+.app_new_demand_ul_li_content{
+  width:100%;
+  height:120px;
+  padding:10px 0px 10px 20px;
+  font-size:0px;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+.app_new_demand_ul_li_content_img{
+  display:block;
+  width:100px;;
+  height:100px;
+  flex-grow: 0;
+}
+.app_new_demand_ul_li_content_title{
+  width:80%;
+  height:100px;
+  font-size:16px;
+  padding-left:10px;
+  font-weight:bold;
+  background-color: #fff;
+  flex-grow: 1;
+}
+.app_new_demand_ul_li_footer{
+  text-align: right;
+  padding-right:15px;
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  color:#666;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  font-size:14px;
+}
+
+.app_new_demand_ul_li_footer_span2{
+  color:#f00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.city_order_null{
+  width:100%;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  font-size:14px;
+  color:#c0c0c0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

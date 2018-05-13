@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>评价服务</title>
+    <style>
+      .user_text{
+        display: block;
+        width:90%;
+        height:300px;
+        margin:50px auto;
+        border:1px solid #c0c0c0;
+        border-radius: 5px;
+        font-size:14px;
+        padding:20px 15px;
+      }
+      .submit_user_txt{
+        width:90%;
+        height:40px;
+        text-align: center;
+        line-height: 40px;
+        font-size:16px;
+        color:#fff;
+        margin:20px auto;
+        border-radius: 5px;
+        background-color: #39f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app_header">
+      <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+          <a class="aui-pull-left aui-btn" id="return_prev_page">
+              <span class="aui-iconfont aui-icon-left "></span>返回
+          </a>
+          <div class="aui-title">评价服务</div>
+      </header>
+    </div>
+
+    <textarea class="user_text" id="user_text" placeholder="请对本次服务方进行评价" name="name" rows="8" cols="500"></textarea>
+
+    <div id="submit_user_txt" class="submit_user_txt">立即评价</div>
+
+    <div id="no_submit_user_txt" class="submit_user_txt">不评价提交</div>
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script>
+    apiready = function(){
+      var jq=jQuery.noConflict();
+      var toast = new auiToast({});
+      var confirmation_id = api.pageParam.confirmation_id;
+      console.log(confirmation_id);
+
+      //取缓存
+      try {var token = JSON.parse(api.getPrefs({sync: true,key: 'user_login_status'})).access_token;} catch (e) {console.log(JSON.stringify(e));};
+
+      jq(function(){
+
+        /*提交按钮*/
+        jq('#submit_user_txt').on('click',function(){
+          var user_text = jq('#user_text').val();
+          if(user_text === ''){toast.fail({title:"未填写评价",duration:1500});}else{
+
+            var user_texts = jq('#user_text').val();
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/assignments/finish/" + confirmation_id,
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Bearer " + token,
+                "Cache-Control": "no-cache"
+              },
+              "data": {
+                "comment": user_texts
+              }
+            }
+            jq.ajax(settings).done(function (res) {
+
+              if(res.message === 'success'){
+                api.sendEvent({name: 'refreshOrderEntrustDetail',extra: {key1: 'value1', }});
+                toast.success({title:"订单完成",duration:1500});
+                setTimeout(function(){api.closeWin();},1500);
+              }
+            });
+          }
+        });
+
+        /*不评价提交*/
+        jq('#no_submit_user_txt').on('click',function(){
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/assignments/finish/" + confirmation_id,
+            "method": "POST",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": "Bearer " + token,
+              "Cache-Control": "no-cache"
+            }
+          }
+
+          jq.ajax(settings).done(function (res) {
+            if(res.message === 'success'){
+              api.sendEvent({name: 'refreshOrderEntrustDetail',extra: {key1: 'value1', }});
+              toast.success({title:"订单完成",duration:1500});
+              setTimeout(function(){api.closeWin();},1500);
+            }
+          });
+        });
+
+        /*提交函数*/
+        function submitOrder(){
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/assignments/finish/" + confirmation_id,
+            "method": "POST",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": "Bearer " + token,
+              "Cache-Control": "no-cache"
+            }
+          }
+
+          jq.ajax(settings).done(function (res) {
+            console.log(JSON.stringify(res));
+            if(res.message === 'success'){
+              api.sendEvent({name: 'refreshOrderEntrustDetail',extra: {key1: 'value1', }});
+              toast.success({title:"订单完成",duration:1500});
+              setTimeout(function(){api.closeWin();},1500);
+            }
+          });
+        }
+
+        /*关闭当前页面*/
+        jq('#return_prev_page').on('click',function(){api.closeWin();});
+      });
+    }
+  </script>
+</html>

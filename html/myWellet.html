@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myWellet.css">
+    <title>设置钱包</title>
+  </head>
+  <body>
+    <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn" id="page_header_return">
+            <span class="aui-iconfont aui-icon-left "></span>返回
+        </a>
+        <div class="aui-title">设置钱包</div>
+    </header>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <img id="user_img" src="../image/icon/noimage.png" class="aui-card-list-user-avatar aui-img-round" />
+                    <span id="user_name" class="aui-list-item-title"></span>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div id="user_balance" class="aui-list-item-title"></div>
+                </div>
+            </li>
+            <li id="user_pay_password" class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">支付密码</div>
+                </div>
+            </li>
+            <li id="bind_alipay" class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">绑定支付宝 <span style="color:#c0c0c0;font-size:14px;" class="bind_alipay_txt"></span></div>
+                </div>
+            </li>
+            <li id="bind_bank" class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">绑定银行卡 <span style="color:#c0c0c0;font-size:14px;" class="bind_bank_txt"></span></div>
+                </div>
+            </li>
+            <li id="user_drawing" class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">提现</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 一些模态 -->
+    <!-- 绑定支付宝的模态 -->
+    <div class="bind_alipay_motai">
+      <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+          <a class="aui-pull-left aui-btn" id="close_bind_alipay_motai">
+              <span class="aui-iconfont aui-icon-left "></span>返回
+          </a>
+          <div class="aui-title">绑定支付宝</div>
+      </header>
+      <input placeholder="请输入支付宝账号" type="number" id="bind_alipay_num" name="bind_alipay_num" />
+      <div class="bind_alipay_submit">确定</div>
+    </div>
+
+    <!-- 银行卡绑定 -->
+    <div class="bind_bank_motai">
+      <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+          <a class="aui-pull-left aui-btn" id="close_bind_bank_motai">
+              <span class="aui-iconfont aui-icon-left "></span>返回
+          </a>
+          <div class="aui-title">绑定银行卡</div>
+      </header>
+      <div class="bind_bank_motai_title">选择银行:</div>
+      <div class="select_bank">
+        <ul class="select_bank_ul"></ul>
+      </div>
+      <input id="bind_bank_num" type="number" name="bind_bank_num" placeholder="输入银行卡号" />
+      <div class="bind_bank_submit">确定</div>
+    </div>
+
+
+    <!-- 提现 -->
+    <div class="user_withdrawals">
+      <div class="user_withdrawals_method">
+          <div style="border-bottom:1px solid #39f;color:#39f;" isSelect="true" method="alipay" class="user_withdrawals_method_alipay">支付宝</div>
+          <div isSelect="fasle" method="bank" class="user_withdrawals_method_bank">银行卡</div>
+      </div>
+      <input type="number" placeholder="请输入提现金额..." maxlength="9" id="withdrawals_money" name="withdrawals_money" />
+      <div class="user_withdrawals_submit">提交</div>
+    </div>
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../script/myWellet.js"></script>
+</html>

@@ -1,0 +1,94 @@
+body,html{background-color: #fff;}
+.no_msg{
+  width:100%;
+  height:50px;
+  text-align: center;
+  line-height: 50px;
+  font-size:16px;
+  color:#c0c0c0;
+  margin:20px auto;
+}
+/*顶部切换栏的样式*/
+.no_information{
+  width: 100%;
+  height:40px;
+  font-size: 14px;
+  color:#c0c0c0;
+  text-align: center;
+  line-height: 40px;
+  margin:15px auto;
+}
+.app_tab{
+  width:100%;
+  height:40px;
+  background-color: #fff;
+  border-bottom:1px solid #DDDDDD;
+}
+.app_tab_swiper_li{
+  text-align: center;
+  line-height: 40px;
+  color:#333;
+  font-size:14px;
+}
+/*切换页*/
+.app_tab_page{
+  width:100%;
+}
+
+.app_tab_page_swiper_li{
+  overflow-y: scroll;
+}
+.app_tab_page_swiper_li_btn,.app_tab_page_swiper_li_btn1,.app_tab_page_swiper_li_btn2,.app_tab_page_swiper_li_btn3,.app_tab_page_swiper_li_btn4{
+  width:90%;
+  margin:0 auto;
+}
+.public_filter_status_style,.public_filter_status_style1,.public_filter_status_style3,.public_filter_status_style4{
+  border:1px solid #c0c0c0;
+  border-radius: 50px;
+  padding:5px;
+  display: inline-block;
+  vertical-align: top;
+  margin:10px;
+  font-size:14px;
+  color:#c0c0c0;
+}
+.app-order-header{
+  background-color: #333;
+}
+
+/*订单列表中一条数据的通用样式*/
+.data_list_li_container{
+  width:90%;
+  height:40px;
+  margin:0 auto 20px;
+  border-bottom:1px solid #eee;
+  display: flex;
+}
+.data_list_li_img{
+  height:40px;
+  font-size:14px;
+}
+.data_list_li_img img{
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+}
+.data_list_li_title{
+  height:40px;
+  text-align: left;
+  line-height: 40px;
+  font-size:14px;
+  padding-left:15px;
+}
+.data_list_li_state{
+  line-height: 40px;
+
+}
+.data_list_li_state_span{
+  padding:5px 5px;
+  border:1px solid #eee;
+  border-radius: 5px;
+  margin-left:15px;
+  font-size:14px;
+  color:#999;
+}

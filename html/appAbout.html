@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>设置</title>
+    <style>
+      body,html{background-color: #fff;}
+      .app-header{background-color: #333;border:0px solid rgba(0,0,0,0);}
+      .click_return{display: block;width:32px;height:32px;position: fixed;top:10px;left:15px;}
+      .subpage_public_style{overflow-y: scroll;width:100%;background-color: #fff;position: fixed;top:1920px;left:0px;z-index: 9999;transition: all 0.3s;}
+      .page_contact_hht_close{width:100%;height:50px;margin:0 auto;text-align: center;line-height: 50px;font-size:30px;color:#333;font-weight: bold;border-bottom: 1px solid #eee;}
+      .page_about_hht_content,.page_contact_hht_content{width:90%;margin:0 auto;font-size:14px;color:#ccc;text-indent: 20px;}
+      .page_contact_hht_content{width:100%;padding-top:20px;}
+      .page_about_hht_content p{padding-bottom: 50px;}
+      .page_contact_hht_content p{width:100%;height:50px;text-align: left;line-height: 50px;font-size:16px;color:#333;border-bottom: 1px solid #eee;}
+
+    </style>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav app-header">
+      <a class="aui-pull-left aui-btn app_close_page">
+          <span class="aui-iconfont aui-icon-left"></span>
+          <span>返回</span>
+      </a>
+      <div class="aui-title">设置</div>
+    </header>
+    <!-- 页面内容 -->
+    <div class="aui-content aui-margin-b-15">
+      <ul class="aui-list aui-list-in">
+        <li id="about_hht" class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">关于我们</div>
+            </div>
+        </li>
+        <li id="contact_hht" class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">联系我们</div>
+            </div>
+        </li>
+        <li id="exit_hht" class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">退出登陆</div>
+            </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 列表项点击后展示的子page内容 -->
+    <div class="page_about_hht subpage_public_style">
+      <div class="page_about_hht_close">
+        <header class="aui-bar aui-bar-nav app-header">
+          <a class="aui-pull-left aui-btn page_about_hht_close_a">
+              <span class="aui-iconfont aui-icon-left"></span>
+              <span>返回</span>
+          </a>
+        </header>
+      </div>
+      <div class="page_about_hht_content">
+        <p>行行通的具体用途：本APP只是一个第三方平台，不提供买卖物品，只是一个服务平台，做这个平台上能解决人们时间转换问题和技术专长对接及闲置利用等，高效节能环保和资源再利用。本服务平台为注册用户解决时间、专长、闲置等对接，尽可能最大利用人们的时间、专长对接、闲置设备再利用。为有时间的人提供服务机会而取得报酬，为没有时间的人找到有时间的人，节省时间做另外的事或得到更多的休息时间，提高人们的生活品质。特别是在专业方面，为需要专业服务的人提供专业的人才来提供服务，让服务更高效率更高品质，节省时间和成本。有专业技能的人在本平台能上找到对口专业的输出口，让技能转变为收益，得到报酬的同时为他人或者企业提供专业的帮助，利国利家利他利己。本服务平台绿色环保，时间共享，让人们的生活更简单。</p>
+        <p>消费群体：本平台是一个提供服务的平台，只收取一定的服务费并提供全方位资讯服务和保障，针对所有的人群，不管是健康的群体还是老弱病残，只要有技能有需和求，都可以利用本平台进行对接服务，为所有注册用户提供全方位的、高效率的、高品质的、健康的服务。</p>
+        <p style="text-align:center;">©Copy-Right&nbsp;&nbsp;&nbsp;&nbsp;2018</p>
+      </div>
+    </div>
+    <div class="page_contact_hht subpage_public_style">
+      <div class="page_contact_hht_close">
+        <header class="aui-bar aui-bar-nav app-header">
+          <a class="aui-pull-left aui-btn page_contact_hht_close_a">
+              <span class="aui-iconfont aui-icon-left"></span>
+              <span>返回</span>
+          </a>
+        </header>
+      </div>
+      <div class="page_contact_hht_content">
+        <p>联系电话：18114222056</p>
+        <p>公司微信：jshanght</p>
+        <p>公司QQ：545878422</p>
+        <p>客服在线：09：00 ———— 18：00</p>
+      </div>
+    </div>
+
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../script/aui-dialog.js" ></script>
+  <script>
+    apiready = function(){
+      var win_height = api.winHeight;
+      var jq=jQuery.noConflict();
+      var toast = new auiToast({});
+      var dialog = new auiDialog({});
+      //全局用户登录信息缓存
+      try {var token = JSON.parse(api.getPrefs({sync: true,key: 'user_login_status'})).access_token;} catch (e) {console.log(JSON.stringify(e));};
+
+      jq(function(){
+        // 设置子页高度
+        jq('.subpage_public_style').height(win_height);
+        jq('.app_close_page').on('click',function(){api.closeWin();});
+        //关闭关于我们
+        jq('.page_about_hht_close_a').on('click',function(){jq('.page_about_hht').css('top','1920px')});
+        //打开关于我们
+        jq('#about_hht').on('click',function(){jq('.page_about_hht').css('top','0px')});
+        //关闭联系我们
+        jq('.page_contact_hht_close_a').on('click',function(){jq('.page_contact_hht').css('top','1920px')});
+        //打开联系我们
+        jq('#contact_hht').on('click',function(){jq('.page_contact_hht').css('top','0px')});
+
+        //退出登录
+        jq('#exit_hht').on('click',function(){
+           dialog.alert({
+                title:"退出",
+                msg:'您确定要退出应用嘛？',
+                buttons:['确认退出','取消']
+            },function(ret){
+                if(ret){
+                    var index = ret.buttonIndex;
+                    if(index === 1 || index === '1'){
+                      closeApp();
+                    }
+                    if(index === 2 || index === '2'){
+                      return;
+                    }
+                }
+            });
+        });
+
+        //退出账号
+        function closeApp(){
+          toast.loading({
+              title:"正在退出",
+              duration:1000
+          },function(ret){
+              api.removePrefs({
+                key: 'user_login_status'
+              });
+              api.removePrefs({
+                key: 'user_register_inf'
+              });
+              api.removePrefs({
+                key: 'user_authentication_msg'
+              });
+              api.removePrefs({
+                key: 'user_data'
+              });
+              api.removePrefs({
+                key: 'user_pay_password'
+              });
+              setTimeout(function(){
+                  toast.hide();
+                  api.openWin({
+                      name: 'signin',
+                      slidBackEnabled:false,
+                      bounces:false,
+                      reload:true,
+                      url: '../html/signin.html'
+                  });
+              }, 1500)
+          });
+        }
+
+
+
+
+      });
+    }
+  </script>
+</html>

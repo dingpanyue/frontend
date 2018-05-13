@@ -1,0 +1,106 @@
+html,body{background-color: #fff;}
+.check_comment_btn{
+  width:100%;
+  height:50px;
+  border-radius: 5px;
+  border:1px solid #eee;
+  text-align: center;
+  line-height: 50px;
+  color:#c0c0c0;
+  margin: 15px auto;
+  font-size: 16px;
+}
+
+/*头部返回的设置*/
+
+.user_info_bg{
+  width:100%;
+  height:320px;
+  border-bottom:1px solid #c0c0c0;
+  background-image: url('../image/resource/infobg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 320px;
+}
+
+
+
+
+/*用户信息主体*/
+.user_info_body{
+  width:100%;
+  padding:0px 20px 20px;
+  margin:-120px auto 0px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.user_info_image_container{
+  width:100%;
+  height:64px;
+  float: left;
+  margin-top: -32px;
+}
+.user_info_image_container::after{
+  clear: both;
+}
+/*用户头像*/
+.user_info_image{
+  width:64px;
+  height:64px;
+  background-color: #fff;
+  border-radius: 50px;
+  margin:0px auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 64px 64px;
+}
+.user_info_text{
+  width:100%;
+  height:64px;
+  text-align: center;
+  color:#000033;
+  font-size:16px;
+  margin-bottom: 26px;
+}
+
+
+/*用户的描述*/
+.user_info_body_describe{
+  text-indent:1rem;
+  font-size:14px;
+  color:#666;
+}
+/*服务和委托积分，还有是否认证的展示*/
+.user_oneself_msg{
+  width:100%;
+  height:40px;
+}
+.user_talents_title{
+  color:#6699CC;
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.user_talents_biaotian{
+  padding:5px 10px;
+}
+/*擅长的领域边距设置*/
+.user_talents_container div{
+  margin-left:15px;
+}
+/*用户展示的图片*/
+.user_exhibition_img_container{
+  width:100%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+.user_exhibition_img_title{
+  width:100%;
+  height:40px;
+  font-size:16px;
+  color:#003;
+  text-align: left;
+  line-height: 40px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/userCore.css">
+    <title>个人中心</title>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav app-header">我的</header>
+    <!-- 用户信息面板展示 -->
+    <div class="user_info_panel_container">
+        <div class="user_info_panel_img"><img src="../image/icon/noimage.png"></div>
+        <div class="user_info_panel_name user_info_panel_center"></div>
+        <div class="user_info_panel_number user_info_panel_center"></div>
+        <div class="user_info_panel_credit user_info_panel_center"><span>信用度：</span><span class="user_info_panel_credit_span"></span></div>
+        <div class="user_info_panel_realName user_info_panel_center"></div>
+    </div>
+    <!-- 操作按钮组 -->
+    <div class="user_operation_group_container">
+      <div class="user_operation_group_public_style operation_btn_authentication">实名认证</div>
+      <div isWhetherJump='yes' class="user_operation_group_public_style operation_btn_wallet">我的钱包</div>
+      <div class="user_operation_group_public_style operation_btn_news">聊天消息</div>
+      <div class="user_operation_group_public_style operation_btn_infoView">个人展示</div>
+      <div class="user_operation_group_public_style operation_btn_info">资料设置</div>
+      <div class="user_operation_group_public_style operation_btn_about">设置</div>
+    </div>
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../script/aui-dialog.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../script/userCore.js"></script>
+</html>

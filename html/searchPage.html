@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/searchPage.css">
+    <title>搜索</title>
+  </head>
+  <body>
+    <div class="search_container">
+      <form action="">
+        <input autofocus="autofocus" type="text" name="search_input" placeholder="请输入搜索内容" maxlength="10"  id="search_input" />
+      </form>
+
+      <div class="search_return">返回</div>
+      <div class="search_type">
+        <span stype="assignments" class="search_type_span">需求</span>
+        <i style="font-size:16px;font-weight:bold;" class="aui-iconfont aui-icon-down"></i>
+      </div>
+    </div>
+
+    <!-- 搜索之后内容的展示 -->
+    <div class="search_result_container">
+      <ul class="search_result_ul">
+        <li style="font-size:14px;color:#c0c0c0;width:100%;height:40px;line-height: 40px;text-align: center;">还没有进行搜索哦~~~</li>
+        <li style="font-size:14px;color:#c0c0c0;width:100%;height:40px;line-height: 40px;text-align: center;">提示：输入关键词之后请点击搜索哦~~</li>
+      </ul>
+    </div>
+
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../script/searchPage.js"></script>
+</html>

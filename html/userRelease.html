@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/userRelease.css" />
+    <title>发布</title>
+  </head>
+  <body>
+
+    <div class="App_container">
+      <header class="aui-bar aui-bar-nav app-title">发布需求</header>
+      <div class="aui-tab" id="app_tab">
+          <div class="aui-tab-item aui-active">需求</div>
+          <div class="aui-tab-item"><div></div>服务</div>
+      </div>
+      <!-- 用户描述需求 -->
+      <div class="app-describe-column">
+
+        <div class="app-describe-column-tis">用尽可能简短的语言来表述</div>
+
+        <!-- 发布的标题 -->
+        <div class="app-demand-title">
+          <input type="text" id="app-demand-title-ipt" name="app-demand-title-ipt" class="app-demand-title-ipt" placeholder="标题，20个字以内概括" maxlength="20" />
+        </div>
+
+
+
+        <!-- 介绍 -->
+        <div class="app-demand-content">
+          <textarea name="app-demand-textarea" id="app-demand-textarea" class="app-demand-textarea" placeholder="100字以内，简单介绍您想要说的..." maxlength="100" cols="100" rows="10"></textarea>
+          <div class="app-select-img"></div>
+        </div>
+
+
+        <!-- 承载图片 -->
+        <div id="app-demand-img"></div>
+        <div class="app-select-img-tip">最多只能选择5张照片,点击可删除图片！</div>
+
+
+        <!-- 选择需求类型 -->
+        <div class="app-select-demand-type">
+          <div class="app-select-demand-type-isText">类型</div>
+          <div class="app-select-demand-type-title" categoryId="-1">点击选择类型...</div>
+          <i class="aui-iconfont aui-icon-right" id="app-select-demand-type-icon"></i>
+        </div>
+
+        <!-- 金额 -->
+        <div class="app-demand-money">
+          <input type="text" id="app-demand-money-ipt" class="app-demand-money-ipt" name="app-demand-money-ipt" placeholder="请输入酬劳/报酬"/>
+        </div>
+        <!-- 详细地址 -->
+        <div class="app_demand_address">
+          <input type="text" id="app_demand_address_ipt" class="app_demand_address_ipt" name="app_demand_address_ipt" maxlength="30" placeholder="请输入详细的地址"/>
+        </div>
+
+        <!-- 过期时间 -->
+        <div isSelect="false" id="select_time">
+          <input value="" placeholder="选择截止日期" class="app_demand_expired_at_ipt" type="text" id="end-date" data-options='{"type":"YYYY-MM-DD hh:mm","beginYear":2010,"endYear":2020}'style="font-size:16px;color:#c0c0c0;width:100%;height:50px;">
+        </div>
+
+        <!-- 发布按钮 -->
+        <div class="app-demand-degree"><div class="app-demand-ordinary-btn">普通发布</div></div>
+
+      </div>
+
+      <!-- 需求类型的模态 -->
+      <div class="app-demand-type-modal">
+        <div class="app-demand-type-modal-header"><i class="aui-iconfont aui-icon-close app-demand-type-modal-header-icon"></i></div>
+        <ul id="app-demand-type-modal-list"></ul>
+      </div>
+
+      <!-- 选择支付方式弹层 -->
+      <div class="select_pay_method_mask"></div>
+      <div class="select_pay_method">
+
+        <!-- 订单详情，就是显示订单金额 -->
+        <div class="order_money_container">
+          <div class="order_money_view">
+            <div class="order_money_view_left">需付款</div>
+            <div class="order_money_view_right"></div>
+          </div>
+        </div>
+
+
+
+        <!-- 支付方式 -->
+        <div class="select_pay_method_title">选择支付方式</div>
+
+        <div class="select_pay_balance">
+          <label class="select_pay_balance_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style">
+                <img class="pay_iocn_balance_img" src="../image/icon/balance.png" alt="余额支付" />
+                <span>余额支付</span>
+                <span class="pay_iocn_balance_span"></span>
+              </div>
+
+
+            </span>
+            <input method="balance" id="select_pay_balance_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" checked />
+          </label>
+        </div>
+
+        <div class="select_pay_alipay">
+          <label class="select_pay_alipay_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style pay_iocn_alipay">
+                <img class="pay_iocn_alipay_img" src="../image/icon/zhifubao.png" alt="支付宝支付" />
+                <span>支付宝支付</span>
+              </div>
+
+            </span>
+            <input method="alipay" id="select_pay_alipay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+          </label>
+        </div>
+
+        <div class="select_pay_wx">
+          <label class="select_pay_wx_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style pay_iocn_wx">
+                <img class="pay_iocn_wx_img" src="../image/icon/weixin.png" alt="微信支付" />
+                <span>微信支付</span>
+              </div>
+
+            </span>
+            <input method="wx" id="select_pay_wxpay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+          </label>
+        </div>
+
+        <div class="confirm_pay_btn">立即支付</div>
+      </div>
+    </div>
+    <!-- 支付密码输入的模态层 -->
+    <div class="user_pay_pasw_mask"></div>
+    <div class="user_pay_pasw_input_div">
+      <div class="user_pay_pasw_input_title">输入密码</div>
+      <input type="password" maxlength="6" id="user_pay_pasw_input" name="user_pay_pasw_input" class="user_pay_pasw_input" />
+    </div>
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- 时间选择插件 -->
+  <script>
+    var jq=jQuery.noConflict();
+    (function(){
+        var defaults,
+            d = new Date(),
+            nowYear = d.getFullYear(),
+            nowMonth = d.getMonth() + 1,
+            domDate,
+            createDate,
+            emptyStr = "<li></li>",
+            domHm = '<div class="t4">时</div><div class="t5">分</div>',
+            domHm2 = '<ol id="d-hours"></ol><ol id="d-minutes"></ol>',
+            domS = '<div class="t6">秒</div>',
+            domS2 = '<ol id="d-seconds"></ol>',
+            isTouch = "ontouchend" in document ? true : false,
+            tstart = isTouch ? "touchstart" : "mousedown",
+            tmove = isTouch ? "touchmove" : "mousemove",
+            tend = isTouch ? "touchend" : "mouseup",
+            tcancel = isTouch ? "touchcancel" : "mouseleave";
+
+        opts = {
+            beginYear: 2010,
+            endYear: 2020,
+            type:'YYYY-MM-DD',
+            limitTime:false
+        };
+
+        //dom渲染
+        domDate = '<div id="date-wrapper"><h3>截止日期</h3><div id="d-content"><div id="d-tit"><div class="t1">年</div><div class="t2">月</div>' + '<div class="t3">日</div></div><div id="d-bg"><ol id="d-year"></ol><ol id="d-month"></ol>' + '<ol id="d-day"></ol>' + '</div></div><a id="d-cancel" href="javascript:">取消</a><a id="d-confirm" href="javascript:">确定</a></div><div id="d-mask"></div>';
+        var css = '<style type="text/css">a{text-decoration:none;}ol,li{margin:0;padding:0}li{list-style-type:none}#date-wrapper{position:fixed;top:20%;left:50%;width:90%;margin-left:-45%;z-index:56;text-align:center;background:#fff;border-radius:3px;padding-bottom:15px;display:none}#d-mask{position:fixed;width:100%;height:100%;top:0;left:0;background:#000;filter:alpha(Opacity=50);-moz-opacity:.5;opacity:.5;z-index:55;display:none}#date-wrapper h3{line-height:50px;background:#79c12f;color:#fff;font-size:20px;margin:0;border-radius:3px 3px 0 0}#date-wrapper ol,#d-tit>div{width:16.6666666%;float:left;position:relative}#d-content{padding:10px}#d-content #d-bg{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:0 0 5px 5px;height:120px;overflow:hidden;margin-bottom:10px;position:relative}#d-cancel,#d-confirm{border-radius:3px;float:left;width:40%;line-height:30px;font-size:16px;background:#dcdddd;color:#666;margin:0 5%}#d-confirm{background:#79c12f;color:#fff}#date-wrapper li{line-height:40px;height:40px;cursor:pointer;position:relative}#d-tit{background:#f8f8f8;overflow:hidden;border-radius:5px 5px 0 0;line-height:30px;border:1px solid #e0e0e0;margin-bottom:-1px}#date-wrapper ol{-webkit-overflow-scrolling:touch;position:absolute;top:0;left:0}#date-wrapper ol:nth-child(2){left:16.6666666%}#date-wrapper ol:nth-child(3){left:33.3333332%}#date-wrapper ol:nth-child(4){left:49.9999998%}#date-wrapper ol:nth-child(5){left:66.6666664%}#date-wrapper ol:nth-child(6){left:83.333333%}#d-content #d-bg:after{content:\'\';height:40px;background:#ddd;position:absolute;top:40px;left:0;width:100%;z-index:1}#date-wrapper li span{position:absolute;width:100%;z-index:99;height:100%;left:0;top:0}#date-wrapper.three ol,.three #d-tit>div{width:33.333333%}#date-wrapper.three ol:nth-child(2){left:33.333333%}#date-wrapper.three ol:nth-child(3){left:66.666666%}#date-wrapper.four ol,.four #d-tit>div{width:25%}#date-wrapper.four ol:nth-child(2){left:25%}#date-wrapper.four ol:nth-child(3){left:50%}#date-wrapper.four ol:nth-child(4){left:75%}#date-wrapper.five ol,.five #d-tit>div{width:20%}#date-wrapper.five ol:nth-child(2){left:20%}#date-wrapper.five ol:nth-child(3){left:40%}#date-wrapper.five ol:nth-child(4){left:60%}#date-wrapper.five ol:nth-child(5){left:80%}</style>';
+        jq("head").append(css);
+        jq('body').append(domDate);
+
+        createDate = {
+            ymd:function(begin,end){
+                var domYear = '',
+                    domMonth = '',
+                    domDay = '';
+                //dom 年 月 日
+                for (var i = begin; i <= end; i++){domYear += '<li><span>' + i + '</span></li>';}
+                jq('#d-year').append(emptyStr + domYear + emptyStr);
+
+                for (var j = 1; j <= 12; j++) {j = j<10?'0'+j:j;domMonth += '<li><span>' + j + '</span></li>';}
+                jq('#d-month').append(emptyStr + domMonth + emptyStr);
+
+                var day = createDate.bissextile(nowYear,nowMonth);
+                for (var k = 1; k <= day; k++) {k = k<10?'0'+k:k;domDay += '<li><span>' + k + '</span></li>';}
+                jq('#d-day').append(emptyStr + domDay + emptyStr);
+            },
+            hm:function(){
+                var domHours = '',domMinutes = '';
+                for (var i = 0; i <= 23; i++) {i = i<10?'0'+i:i;domHours += '<li><span>' + i + '</span></li>';}
+                jq('#d-hours').append(emptyStr + domHours + emptyStr);
+
+                for (var j = 0; j <= 59; j++) {j = j<10?'0'+j:j;domMinutes += '<li><span>' + j + '</span></li>';}
+                jq('#d-minutes').append(emptyStr + domMinutes + emptyStr);
+
+            },
+            s:function(){
+                var domSeconds = '';
+                for (var i = 0; i <= 59; i++) {i = i<10?'0'+i:i;domSeconds += '<li><span>' + i + '</span></li>';}
+                jq('#d-seconds').append(emptyStr + domSeconds + emptyStr);
+            },
+            bissextile:function(year,month){
+                var day;
+                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                    day = 31
+                } else if (month == 4 || month == 6 || month == 11 || month == 9) {
+                    day = 30
+                } else if (month == 2) {
+                    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) { //闰年
+                        day = 29
+                    } else {
+                        day = 28
+                    }
+
+                }
+                return day;
+            },
+            slide:function(el){
+                //滑动
+                var T,mT,isPress = false;
+                jq(document).on(tstart,'#date-wrapper ol', function(e){
+                    var e = e.originalEvent;
+                    e.stopPropagation();
+                    e.preventDefault();
+                    T = e.pageY || e.touches[0].pageY;
+                    if(!isTouch){isPress = true;}
+                })
+                jq(document).on(tmove,'#date-wrapper ol', function(e){
+                    var e = e.originalEvent,that = jq(this);
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if(!isTouch && !isPress){return false};
+                    mT = e.pageY || e.touches[0].pageY;
+                    that.css('top', that.position().top + (mT - T) + 'px');
+                    T = mT;
+                    if(jq('#d-bg').hasClass('limitTime')){
+                        if(that.attr('id') == 'd-year' && that.position().top > yTop){
+                            that.css('top', yTop + 'px');
+                        }else if(that.attr('id') == 'd-month' && that.position().top > mTop){
+                            that.css('top', mTop + 'px');
+                        }else if(that.attr('id') == 'd-day' && that.position().top > dTop){
+                            that.css('top', dTop + 'px');
+                        }
+                    }
+                    if (that.position().top > 0) that.css('top', '0');
+                    if (that.position().top < -(that.height() - (120))) that.css('top', '-' + (that.height() - (120)) + 'px');
+                })
+                jq(document).on(tend,'#date-wrapper ol', function(e){
+                    var e = e.originalEvent,that = jq(this);
+                    e.stopPropagation();
+                    e.preventDefault();
+                    isPress = false;
+                    dragEnd(that);
+                })
+                jq(document).on(tcancel,'#date-wrapper ol', function(e){
+                    var e = e.originalEvent,that = jq(this);
+                    e.stopPropagation();
+                    e.preventDefault();
+                    isPress = false;
+                    dragEnd(that);
+                })
+                function dragEnd(that){
+                    //滚动调整
+                    var t = that.position().top;
+                    that.css('top',Math.round(t/40)*40+'px');
+                    //定位active
+                    t = Math.round(Math.abs(jq(that).position().top));
+                    var li = that.children('li').get(t/40+1);
+                    jq(li).addClass('active').siblings().removeClass('active');
+                    //修正日期
+                    var id = that.attr('id');
+                    if(id == 'd-month' || id == 'd-year'){
+                        var day = createDate.bissextile(jq('#d-year .active').text(),jq('#d-month .active').text());
+                        if(day != (jq('#d-day li').length-2)){
+                            var thisActive = jq('#d-day .active').text();
+                            thisActive > day&&(thisActive = day);
+                            var str = '';
+                            for (var i = 1; i <= day; i++) {
+                                if (i == thisActive) {
+                                    str += '<li class="active"><span>' + i + '</span></li>';
+                                } else {
+                                    str += '<li><span>' + i + '</span></li>';
+                                }
+                            }
+                            jq('#d-day').html(emptyStr + str + emptyStr);
+                            if(Math.abs(jq('#d-day').position().top) > jq('#d-day').height()-120)jq('#d-day').css('top','-'+(jq('#d-day').height()-120)+'px');
+                        }
+                    }
+                }
+            },
+            show:function(isShow){
+                var domMain = jq('#date-wrapper'),
+                    domMask = jq('#d-mask');
+                if (isShow) {
+                    domMain.show();
+                    domMask.show();
+                } else {
+                    domMain.hide();
+                    domMask.hide();
+                }
+            },
+            resetActive:function(){
+                var d = new Date();
+                jq('#date-wrapper ol').each(function() {
+                    var e = jq(this),
+                        eId = e.attr('id');
+                    e.children('li').each(function() {
+                        var lie = jq(this),liText = lie.text() == ''? 'x':lie.text();
+                        if (eId == 'd-year' && liText == d.getFullYear()) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        } else if (eId == 'd-month' && liText == (d.getMonth() + 1)) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        } else if (eId == 'd-day' && liText == d.getDate()) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        } else if (eId == 'd-hours' && liText == d.getHours()) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        } else if (eId == 'd-minutes' && liText == d.getMinutes()) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        } else if (eId == 'd-seconds' && liText == d.getSeconds()) {
+                            lie.addClass('active').siblings().removeClass('active');
+                            return false;
+                        }
+                    })
+                })
+            },
+            toNow:function(refresh){
+                if (!refresh) {
+                    jq('#date-wrapper ol').each(function() {
+                        var liTop = -(jq(this).children('.active').position().top -40);
+                        jq(this).animate({
+                                top: liTop
+                            },
+                            600);
+                        if(jq(this).attr('id') == 'd-year'){
+                            yTop = liTop;
+                        }else if(jq(this).attr('id') == 'd-month'){
+                            mTop = liTop;
+                        }else if(jq(this).attr('id') == 'd-day'){
+                            dTop = liTop;
+                        }
+                    })
+                } else {
+                    jq('#date-wrapper ol').each(function() {
+                        jq(this).animate({
+                                top: 0
+                            },
+                            0);
+                    })
+                }
+            },
+            clear:function(){
+                createDate.toNow(true);
+                createDate.show(false);
+            }
+        };
+        createDate.slide();
+        var opt,activeEl;
+        function DateTool(obj){
+            var that = jq(obj)
+            that.bind('click',function() {
+                if (!jq('#date-wrapper').is(':visible')) {
+                    if(that.get(0).tagName == 'INPUT'){that.blur();}
+                    if(activeEl != obj){
+                        jq('#date-wrapper ol').empty();
+                        activeEl = obj;
+                        opt = null;
+                        opt = jq.extend({},opts,that.data('options'));
+                        console.log(opt);
+                        createDate.ymd(opt.beginYear,opt.endYear);
+                        if(opt.type == "YYYY-MM-DD hh:mm:ss"){
+                            jq('#d-tit div:gt(2)').remove();
+                            jq('#d-bg ol:gt(2)').remove();
+                            jq('#d-tit').append(domHm+domS);
+                            jq('#d-bg').append(domHm2+domS2);
+                            createDate.hm();
+                            createDate.s();
+                            jq('#date-wrapper').attr('class','');
+                        }else if(opt.type == "YYYY-MM-DD hh:mm"){
+                            jq('#d-tit div:gt(2)').remove();
+                            jq('#d-bg ol:gt(2)').remove();
+                            jq('#d-tit').append(domHm);
+                            jq('#d-bg').append(domHm2);
+                            createDate.hm();
+                            jq('#date-wrapper').attr('class','five');
+                        }else{
+                            jq('#d-tit div:gt(2)').remove();
+                            jq('#d-bg ol:gt(2)').remove();
+                            jq('#date-wrapper').attr('class','three');
+                        }
+                    }
+                    createDate.resetActive();
+                    createDate.show(true);
+                    createDate.toNow(false);
+                    jq('#d-confirm').attr('d-id', obj);
+                    jq('#d-bg').removeClass('limitTime');
+                    if(opt.limitTime){jq('#d-bg').addClass('limitTime')}
+                }
+            });
+        };
+        jQuery.date = function(obj){return new DateTool(obj);};
+        //取消
+        jq(document).on('click','#d-cancel',function(){createDate.clear();});
+        //确定
+        jq(document).on('click','#d-confirm',function(){
+            var y = jq('#d-year .active').text(),
+                m = jq('#d-month .active').text(),
+                d = jq('#d-day .active').text(),
+                h = jq('#d-hours .active').text(),
+                min = jq('#d-minutes .active').text(),
+                s = jq('#d-seconds .active').text(),
+                str,
+                that = jq(jq(this).attr('d-id'));
+            if(opt.type == "YYYY-MM-DD hh:mm:ss"){
+                str = y+'-'+m+'-'+d+' '+h+':'+min+':'+s;
+            }else if(opt.type == "YYYY-MM-DD hh:mm"){
+                str = y+'-'+m+'-'+d+' '+h+':'+min;
+            }else{
+                str = y+'-'+m+'-'+d;
+            }
+
+            //赋值
+            console.log('id:' + jq(this).attr('d-id'),'时间:' + str);
+            if(that.get(0).tagName == 'INPUT'){
+                that.val(str);
+            }else{
+                that.text(str);
+            }
+            createDate.toNow(true);
+            createDate.show(false);
+        });
+    })(jQuery);
+    jq.date('#end-date');
+  </script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../script/aui-tab.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../script/userRelease.js"></script>
+
+</html>

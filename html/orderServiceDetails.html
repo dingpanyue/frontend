@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../public/swiper/dist/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/orderServiceDetails.css">
+    <title>服务详情</title>
+  </head>
+  <body>
+    <div class="app_header">
+      <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+          <a class="aui-pull-left aui-btn" id="return_prev_page">
+              <span class="aui-iconfont aui-icon-left "></span>返回
+          </a>
+          <div class="aui-title">服务详情</div>
+      </header>
+    </div>
+
+    <!-- 所有的公共部分包括，名称，内容，操作记录 -->
+    <div class="app_subject">
+      <!-- 轮播 -->
+      <div class="server_focus_container">
+        <div class="swiper-container" id="server_focus">
+            <div class="swiper-wrapper" id="server_focus_wrapper">
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      </div>
+      <!-- 单个详情的展示样式 -->
+      <div class="service_details_container">
+        <section class="aui-content-padded">
+            <div class="aui-card-list">
+
+                <!-- 顶部展示 -->
+                <div class="aui-card-list-header aui-card-list-user aui-border-b">
+                    <div class="aui-card-list-user-name service_title">服务名称：</div>
+                </div>
+
+                <!-- 用户的一些信息 -->
+                <div class="aui-card-list-header aui-card-list-user">
+                   <div class="aui-card-list-user-avatar">
+                       <img src="../image/icon/noimage.png" class="aui-img-round service_img" />
+                   </div>
+                   <div class="aui-card-list-user-name">
+                      <div class="service_name">KIKI</div>
+                      <small class="service_expired">过期时间：</small>
+                  </div>
+
+                </div>
+
+                <!-- service的具体文字说明 -->
+                <div style="text-indent:1em;" class="aui-card-list-content-padded service_content"></div>
+            </div>
+        </section>
+      </div>
+
+      <!-- 操作记录 -->
+
+      <section class="aui-content-padded">
+          <div class="aui-card-list">
+              <div class="aui-card-list-header">历史记录：</div>
+              <div class="aui-card-list-content-padded">
+                  <div class="order_operations">
+                    <ul id="order_operations_ul">
+
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </section>
+    </div>
+
+    <!-- 一些操作的功能 -->
+    <!-- 同意购买服务 -->
+    <div class="agree_buy_service">同意购买服务</div>
+
+    <!-- 拒绝购买服务 -->
+    <div class="refuse_buy_service">拒绝他的购买</div>
+
+    <!-- 确认主动购买的服务完成 -->
+    <div class="user_buy_service_complete">提交完成申请</div>
+
+    <!-- 取消申请购买中的服务 -->
+    <div class="refuse_service_apply">取消购买申请</div>
+    <!-- 我购买的服务待支付 -->
+    <div class="i_buy_service_no_pay">立即支付</div>
+
+
+    <!-- 确认购买的服务已经完成了 -->
+    <div class="confirm_buy_service_complete">确认服务已完成</div>
+    <!-- 拒绝服务完成 -->
+    <div class="refuse_service_complete">拒绝服务完成</div>
+
+
+
+
+
+
+    <!-- 选择支付方式弹层 -->
+    <div class="select_pay_method_mask"></div>
+    <div class="select_pay_method">
+
+      <!-- 订单详情，就是显示订单金额 -->
+      <div class="order_money_container">
+        <div class="order_money_view">
+          <div class="order_money_view_left">需付款</div>
+          <div class="order_money_view_right"></div>
+        </div>
+      </div>
+
+
+
+      <!-- 支付方式 -->
+      <div class="select_pay_method_title">选择支付方式</div>
+
+      <div class="select_pay_balance">
+        <label class="select_pay_balance_label">
+          <span class="pay_iocn_div">
+            <img class="pay_iocn_balance" src="../image/icon/balancepay.jpg" alt="余额支付" />
+            <span class="pay_iocn_balance pay_iocn_balance_span">账户剩余：</span>
+          </span>
+          <input method="balance" id="select_pay_balance_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" checked />
+        </label>
+      </div>
+
+      <div class="select_pay_alipay">
+        <label class="select_pay_alipay_label">
+          <span class="pay_iocn_div">
+            <img class="pay_iocn_alipay" src="../image/icon/alipay.jpg" alt="支付宝支付" />
+          </span>
+          <input method="alipay" id="select_pay_alipay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+        </label>
+      </div>
+
+      <div class="select_pay_wx">
+        <label class="select_pay_wx_label">
+          <span class="pay_iocn_div">
+            <img class="pay_iocn_wx" src="../image/icon/wxpay.jpg" alt="微信支付" />
+          </span>
+          <input method="wx" id="select_pay_wxpay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+        </label>
+      </div>
+
+      <div class="confirm_pay_btn">立即支付</div>
+    </div>
+
+    <!-- 支付密码输入的模态层 -->
+    <div class="user_pay_pasw_mask"></div>
+    <div class="user_pay_pasw_input_div">
+      <div class="user_pay_pasw_input_title">输入密码</div>
+      <input type="password" maxlength="6" id="user_pay_pasw_input" name="user_pay_pasw_input" class="user_pay_pasw_input" />
+    </div>
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../public/swiper/dist/js/swiper.min.js"></script>
+  <script src="../script/orderServiceDetails.js"></script>
+</html>

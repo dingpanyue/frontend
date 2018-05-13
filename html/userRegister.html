@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+  <link rel="stylesheet" type="text/css" href="../css/userRegister.css">
+  <title>注册</title>
+</head>
+<body>
+  <header class="aui-bar aui-bar-nav app-top-bar">
+      <a class="aui-pull-left aui-btn app-top-bar-icon">
+          <i class="aui-iconfont aui-text-default aui-icon-close"></i>
+      </a>
+  </header>
+
+  <div class="app_page_title">注册</div>
+
+  <div class="collect-data-container">
+
+    <p class="user-phone-p public-style-input">
+      <input type="text" placeholder="请输入手机号" maxlength="11" id="user-phone" name="user-phone" class="user-phone">
+    </p>
+    <p class="user-verification-p">
+      <div class="user_verification_p_container public-style-input">
+        <input type="text" placeholder="请输入验证码" maxlength="6" id="user-verification" name="user-verification" class="user-verification user_verification_input">
+        <div class="send-verification-btn">获取验证码</div>
+      </div>
+    </p>
+    <p class="user-psw-p public-style-input">
+      <input type="password" placeholder="请输入您的密码" maxlength="16" id="user-psw" name="user-psw" class="user-psw">
+    </p>
+    <p class="user-confirm-psw-p public-style-input">
+      <input type="password" placeholder="请再次确认您的密码" maxlength="16" id="user-confirm-psw" name="user-confirm-psw" class="user-confirm-psw">
+    </p>
+
+
+    <div class="user-input-submit">注册</div>
+  </div>
+
+  <div class="error-prompt">可能有错误</div>
+
+</body>
+<script src="../script/api.js"></script>
+<script src="../public/js/app_public.js"></script>
+<script src="../script/userRegister.js"></script>
+</html>

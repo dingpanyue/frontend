@@ -1,0 +1,30 @@
+﻿ <widget id="A6053216328078"  version="0.0.1">
+  <name>行行通</name>
+  <content src="index.html" />
+  <access origin="*" />
+  <preference name="pageBounce" value="false"/>
+	<preference name="appBackground" value="#fff"/>
+	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
+	<preference name="frameBackgroundColor" value="#fff"/>
+	<preference name="hScrollBarEnabled" value="true"/>
+	<preference name="vScrollBarEnabled" value="true"/>
+	<preference name="autoLaunch" value="true"/>
+	<preference name="fullScreen" value="false"/>
+	<preference name="smartUpdate" value="false" />  <preference name="urlScheme" value="xxt" />  <preference name="urlScheme" value="wx6f1e0cbc3d6bba69" />  <preference name="querySchemes" value="weixin,alipay,xxt"/>
+	<preference name="debug" value="false"/>
+	<preference name="statusBarAppearance" value="false"/>
+	<permission name="readPhoneState" />
+	<permission name="camera" />
+	<permission name="record" />
+	<permission name="location" />
+	<permission name="fileSystem" />
+	<permission name="internet" />
+	<permission name="bootCompleted" />
+	<permission name="hardware" />
+	<preference name="softInputMode" value="auto"/>
+  <feature name="aMap">
+    		<param name="android_api_key" value="81a976619299465c3c6aeea2aede16c8" />
+		    <param name="ios_api_key" value="0934302d289c92b9305a2e4db6e44f37" />
+  </feature>
+
+</widget>

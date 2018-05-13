@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+  <link rel="stylesheet" type="text/css" href="../css/chatRoom.css">
+  <title>系统消息</title>
+  <style>
+    html,body{font-family: '微软雅黑';background-color: #fff;}
+    .list_container{
+      width:90%;
+      margin:0 auto;
+    }
+    .system_msg_ul{
+      width:100%;
+    }
+    .system_msg_ul_li{
+      width:100%;
+      padding:10px 15px;
+      border-bottom:1px solid #eee;
+      font-size:14px;
+      color:#999;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header class="aui-bar aui-bar-nav">
+    <a class="aui-pull-left aui-btn close_this_win">
+        <span class="aui-iconfont aui-icon-left"></span>返回
+    </a>
+    <div class="aui-title">系统消息</div>
+  </header>
+
+  <div class="list_container">
+    <ul class="system_msg_ul"></ul>
+  </div>
+
+
+
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../script/api.js"></script>
+<script src="../public/js/app_public.js"></script>
+<script>
+  apiready = function(){
+    var win_height = api.winHeight;
+    var jq=jQuery.noConflict();
+    jq(function(){
+
+      function runSystemList(){
+        try {var system_msg_cache = JSON.parse(api.getPrefs({sync: true,key: 'system_msg'}));} catch (e) {};
+        var _div = jq('<div></div>');
+        for(var item in system_msg_cache){
+          
+          var system_msg_ul_li = jq('<li class="system_msg_ul_li">'+system_msg_cache[item]+'</li>');
+          _div.prepend(system_msg_ul_li);
+        }
+
+        jq('.system_msg_ul').html(_div);
+      }
+
+      runSystemList();
+
+
+
+      //监听自定义事件
+
+      //收到推送，刷新页面
+
+      api.addEventListener({name:'RefreshSystemMsgList'},function(ret, err){runSystemList();});
+
+
+
+
+
+      jq('.close_this_win').click(function(){api.closeWin();});
+    });
+  }
+</script>
+</html>

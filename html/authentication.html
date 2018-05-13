@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <title>用户实名认证</title>
+    <style>
+      body,html{background-color: #fff;}
+      .app-header{background-color: #333;border:0px solid rgba(0,0,0,0);}
+      .click_return{display: block;width:32px;height:32px;position: fixed;top:10px;left:15px;}
+      .app_submit_container{width:90%;margin:20px auto;}
+    </style>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav app-header">
+      <a class="aui-pull-left aui-btn app-goIndex">
+          <span class="aui-iconfont aui-icon-left"></span>
+          <span>返回</span>
+      </a>
+      <div class="aui-title">用户实名认证</div>
+    </header>
+    <div class="aui-content aui-margin-b-15">
+      <ul class="aui-list aui-form-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label">
+                    姓名：
+                </div>
+                <div class="aui-list-item-input">
+                    <input class="page_data_name" type="text" placeholder="请输入您的真实姓名">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label">
+                    手机：
+                </div>
+                <div class="aui-list-item-input">
+                    <input maxlength="11" class="page_data_phone" type="text" placeholder="请输入与您身份证绑定的手机号">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label">
+                    身份证：
+                </div>
+                <div class="aui-list-item-input">
+                    <input class="page_data_number" type="text" placeholder="请输入真实有效的公民身份证号">
+                </div>
+            </div>
+        </li>
+      </ul>
+      <div class="app_submit_container">
+        <div class="aui-btn aui-btn-info aui-btn-block page_data_submit">提交</div>
+      </div>
+    </div>
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script>
+    apiready = function(){
+      var win_height = api.winHeight;
+      var jq=jQuery.noConflict();
+      var toast = new auiToast({});
+      //全局用户登录信息缓存
+      try {var token = JSON.parse(api.getPrefs({sync: true,key: 'user_login_status'})).access_token;} catch (e) {console.log(JSON.stringify(e));};
+
+      jq(function(){
+
+        jq('.app-goIndex').on('click',function(){api.closeWin();});
+
+        jq('.page_data_submit').on('click',function(){
+
+          var page_data_name = jq('.page_data_name').val();
+          var page_data_phone = jq('.page_data_phone').val();
+          var page_data_number = jq('.page_data_number').val();
+          if(page_data_name !== '' && page_data_phone !== '' || page_data_number !== ''){
+            console.log('asd');
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://47.104.73.41/api/mobile-terminal/rest/v1/user/authentication",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Bearer " + token,
+                "Cache-Control": "no-cache"
+              },
+              "data": {
+                "real_name": page_data_name,
+                "card_no": page_data_number,
+                "mobile": page_data_phone
+              }
+            }
+
+            jq.ajax(settings).done(function (res) {
+              console.log(JSON.stringify(res));
+              if(res.message === 'success'){
+                console.log('asd');
+                toast.success({
+                    title:"信息已提交",
+                    duration:2000
+                });
+                jq('.page_data_name').val('');
+                jq('.page_data_phone').val('');
+                jq('.page_data_number').val('');
+                setTimeout(function(){api.closeWin();},1800);
+              }else{
+                toast.success({
+                    title:res.message,
+                    duration:2000
+                });
+                jq('.page_data_name').val('');
+                jq('.page_data_phone').val('');
+                jq('.page_data_number').val('');
+                if(res.message = '您的身份已经认证过，无需再次认证'){setTimeout(function(){api.closeWin();},1800);}
+              }
+            });
+          }else{
+            alert('请填写完整');
+          }
+        });
+
+
+
+
+
+
+
+
+      });
+    }
+  </script>
+</html>

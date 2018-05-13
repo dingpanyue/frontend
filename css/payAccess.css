@@ -1,0 +1,53 @@
+.entrust_recommend_container{
+  width:90%;
+  height:450px;
+  margin:40px auto 0px;
+}
+.entrust_recommend_title{
+  width:100%;
+  height:45px;
+  text-align: center;
+  line-height: 45px;
+  color:#333;
+  font-size:16px;
+  border-bottom: 1px solid #c0c0c0;
+  margin:0 auto;
+}
+.entrust_recommend_list{
+  width:100%;
+}
+.entrust_recommend_list li{
+  width:78px;
+  height:78px;
+  display: inline-block;
+  vertical-align:top;
+}
+.entrust_recommend_list li img{
+  display: block;
+  width:48px;
+  height:48px;
+  margin:15px auto;
+  border-radius: 50px;
+}
+.entrust_recommend_list li p{
+  width:100%;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  color:#c0c0c0;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

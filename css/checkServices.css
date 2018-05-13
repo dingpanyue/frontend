@@ -1,0 +1,7 @@
+html,body{background-color: #fff;}
+.page_header{width:100%;position: fixed;top:0px;left:0px;z-index: 10;}
+.page_header_color{background-color: #333;}
+.services_chat_btn{width:90%;height:40px;margin:20px auto;background-color: #33FF66;color:#fff;text-align: center;line-height: 40px;}
+.server_focus_container{width:100%;margin-top: 50px;}
+#server_focus{width:100%;}
+.server_msg_view_container{width:100%;margin:0px auto 65px;}

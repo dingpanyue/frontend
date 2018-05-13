@@ -1,0 +1,490 @@
+html,body{background-color: #fff;font-family: '微软雅黑'}
+.app_select_type{width:100%;height:40px;}
+.App_container{width:100%;}
+
+.app_select_type_public_style{
+  width:80%;
+  height:40px;
+  border:1px solid #fff;
+  font-size:16px;
+  color:#fff;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  margin:0 auto;
+}
+
+
+.app-title{
+  background-color: #333;
+  border-bottom:1px solid #c0c0c0;
+}
+/*描述需求的栏*/
+.app-describe-column{
+  width:90%;
+  height:400px;
+  margin:15px auto 0px;
+  font-size:18px;
+}
+.app-describe-column-tis{
+  width:100%;
+  height:40px;
+  color:#696969;
+  font-size:18px;
+  text-align: center;
+  line-height: 40px;
+  margin:5px auto 15px;
+}
+@media screen and (max-width: 321px) {
+  .app-describe-column-tis{
+    font-size:16px;
+  }
+  input::-webkit-input-placeholder{
+    color: #c0c0c0;
+    font-size:14px;
+  }
+  textarea::-webkit-input-placeholder{
+    color: #c0c0c0;
+    font-size:14px;
+  }
+}
+
+
+
+/*需求程度*/
+.app-demand-degree{
+  width:100%;
+  height:50px;
+  font-size:0px;
+  margin-top:30px;
+}
+/*发布按钮*/
+.app-demand-ordinary-btn{
+  width:100%;
+  height:40px;
+  border-radius: 5px;
+  margin:0 auto;
+  text-align: center;
+  line-height: 40px;
+  background-color: #39f;
+  color:#fff;
+  font-size:16px;
+}
+
+/*多行文本输入框*/
+.app-demand-content{
+  width:100%;
+  height:220px;
+  margin:15px auto 0px;
+  position: relative;
+  background-color: #ececec;
+}
+#app-demand-textarea{
+  width:100%;
+  height:180px;
+  position: absolute;
+  top:0px;
+  left:0px;
+  padding:10px 10px 35px 10px;
+  background-color: #ececec;
+  font-size:18px;
+}
+/*选择图片*/
+.app-select-img{
+  width:30px;
+  height:30px;
+  position: absolute;
+  bottom:5px;
+  left:5px;
+  background: url("../image/icon/selectimg.png")center no-repeat;
+  background-size: 30px 30px;
+  background-color: #ececec;
+  z-index:10;
+}
+@media screen and (max-width: 321px) {
+  /*选择图片*/
+  .app-select-img{
+    background-size: 30px 30px;
+  }
+}
+
+
+/*被选择的图片列表*/
+#app-demand-img{
+  width:100%;
+  font-size:0px;
+}
+#app-demand-img img{
+  width:60px;
+  height:60px;
+  display: inline-block;
+  vertical-align: top;
+  font-size:18px;
+  margin-left:5px;
+  border:1px solid #c0c0c0;
+}
+
+/*选择图片的提示*/
+.app-select-img-tip{
+  width:100%;
+  height:30px;
+  margin:5px auto 0px;
+  color:#c0c0c0;
+  font-size:14px;
+}
+@media screen and (max-width: 321px) {
+  .app-select-img-tip{
+    font-size:12px;
+  }
+}
+
+/*选择需求类型*/
+.app-select-demand-type{
+  width:100%;
+  height:60px;
+  margin:20px auto 0px;
+  background-color: #ececec;
+  font-size:0px;
+}
+/*左边的提示文字*/
+.app-select-demand-type-isText{
+  width:22%;
+  height:60px;
+  border-right:1px solid #c0c0c0;
+  text-align: center;
+  line-height: 60px;
+  color:#646464;
+  font-size:14px;
+  display:inline-block;
+  vertical-align: top;
+}
+@media screen and (max-width: 321px) {
+  .app-select-demand-type-isText{
+    width:30%;
+    font-size:12px;
+  }
+}
+
+
+
+
+.app-select-demand-type-title{
+  width:60%;
+  height:60px;
+  padding-left:20px;
+  text-align: left;
+  line-height: 60px;
+  color:#333;
+  display:inline-block;
+  vertical-align: top;
+  font-size:14px;
+  overflow: hidden;
+}
+#app-select-demand-type-icon{
+  width:18%;
+  height:60px;
+  text-align: center;
+  line-height: 60px;
+  color:#333;
+  font-size:16px;
+  display: inline-block;
+  vertical-align: top;
+}
+@media screen and (max-width: 321px) {
+  .app-select-demand-type-title{
+    width:60%;
+    font-size:12px;
+  }
+  #app-select-demand-type-icon{
+    width:8%
+    font-size:12px;
+  }
+}
+
+
+
+
+
+/*需求类型列表模态*/
+.app-demand-type-modal{
+  width:100%;
+  background-color: #fff;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:9010;
+  display:none;
+}
+.app-demand-type-modal-header{
+  width:100%;
+  height:50px;
+  border-bottom:1px solid #c0c0c0;
+  text-align: center;
+  line-height: 50px;
+}
+.app-demand-type-modal-header-icon{
+  font-size:34px;
+}
+@media screen and (max-width: 321px) {
+  .app-demand-type-modal-header{
+    height:50px;
+    line-height: 50px;
+  }
+  .app-demand-type-modal-header-icon{
+    font-size:24px;
+  }
+}
+
+
+
+
+#app-demand-type-modal-list li{
+  width:33%;
+  height:50px;
+  text-align: center;
+  line-height: 50px;
+  color:#333;
+  float:left;
+  border-radius: 5px;
+  font-size:18px;
+  margin-bottom:15px;
+  overflow-y:scroll;
+}
+@media screen and (max-width: 321px) {
+  #app-demand-type-modal-list li{
+    width:23%;
+    height:35px;
+    text-align: center;
+    line-height: 35px;
+    color:#333;
+    float:left;
+    border-radius: 5px;
+    font-size:14px;
+  }
+}
+
+
+
+
+/*立即提交按钮*/
+.app-demand-submit{
+  width:100%;
+  height:50px;
+  color:#fff;
+  background-color: #c0c0c0;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+  margin:20px auto 0px;
+  font-size:20px;
+}
+#app-demand-title-ipt{
+  width:100%;
+  height:50px;
+  border-bottom:1px solid #c0c0c0;
+  font-size:18px;
+  padding-left:10px;
+  font-weight: bold;
+}
+
+
+
+
+
+/*需求金额*//*需求详细地址*/
+#app-demand-money-ipt,#app_demand_address_ipt,#select_time{
+  width:100%;
+  height:50px;
+  border-bottom:1px solid #c0c0c0;
+  font-size:14px;
+  color:#FFA500;
+  padding-left:10px;
+  margin-top:20px;
+}
+#app-demand-money-ipt{
+  font-size:18px;
+  font-weight: bold;
+}
+#app_demand_address_ipt{
+  color:#333;
+  font-size:18px;
+  font-weight: bold;
+}
+#select_time{
+  color:#c0c0c0;
+}
+
+
+
+
+/*订单详情，就是显示订单金额*/
+.order_money_container{
+  width:95%;
+  height:40px;
+  margin:0 auto;
+}
+.order_money_view{
+  width:100%;
+  height:40px;
+  position: relative;
+}
+.order_money_view_left{
+  width:50%;
+  height:40px;
+  text-align: left;
+  line-height: 40px;
+  position: absolute;
+  top:0px;
+  left:0px;
+  color:#333;
+  font-size:16px;
+}
+.order_money_view_right{
+  width:50%;
+  height:40px;
+  text-align: right;
+  line-height: 40px;
+  position: absolute;
+  top:0px;
+  right:0px;
+  color:#f3290e;
+  font-size:18px;
+}
+
+
+/*选择支付方式弹层*/
+.select_pay_method_mask{
+  width:100%;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:100;
+  display:none;
+}
+.select_pay_method{
+  width:100%;
+  height:285px;
+  background-color: #fff;
+  position: fixed;
+  bottom:-300px;
+  left:0px;
+  z-index:101;
+  transition: all 0.3s;
+}
+.select_pay_method_title{
+  width:95%;
+  height:40px;
+  line-height: 40px;
+  text-align: center;;
+  font-size:16px;
+  color:#999;
+  margin:15px auto 0px;
+}
+
+
+/*支付宝支付*/
+.select_pay_alipay,.select_pay_balance{
+  height:48px;
+  border-bottom:1px solid #eee;
+}
+.select_pay_wx{
+  height:48px;
+}
+/*支付logo的尺寸*/
+.pay_iocn_div{
+  display:inline-block;
+  width:86%;
+  height:48px;
+}
+
+.zhifu_icon_public_style{
+  height:48px;
+  line-height: 48px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.zhifu_icon_public_style img{
+  display: block;
+  width:48px;
+  height:48px;
+  flex-grow: 0;
+}
+.zhifu_icon_public_style span{
+  padding-left:15px;
+  color:#666;
+  flex-grow: 1;
+}
+
+.pay_iocn_balance_span{
+  line-height: 48px;
+  font-size:14px;
+  color:#333;
+}
+
+/*选择按钮的居中*/
+.public_style_ipt{
+  margin-top:8px;
+  margin-left:10px;
+  margin-right:10px;
+}
+/*确认支付按钮*/
+.confirm_pay_btn{
+  width:100%;
+  height:45px;
+  margin:15px auto 0px;
+  text-align: center;
+  line-height: 45px;
+  font-size:18px;
+  color:#fff;
+  letter-spacing:20px;
+  background-color: #ec7039;
+}
+
+
+/*支付密码输入的模态*/
+.user_pay_pasw_mask{
+  width:100%;
+  background-color: #fff;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index: 99998;
+  display:none;
+}
+.user_pay_pasw_input_div{
+  width:85%;
+  height:160px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  position: fixed;
+  z-index: 99999;
+  top:15%;
+  left:7.5%;
+  box-shadow: 0px 0px 10px #fff;
+  display:none;
+}
+.user_pay_pasw_input_title{
+  width:100%;
+  height:57px;
+  text-align: center;
+  line-height: 57px;
+  color:#999;
+  font-size:14px;
+}
+input[name="user_pay_pasw_input"]{
+  width:100%;
+  height:45px;
+  margin:0 auto;
+  border-top:1px solid #FFF;
+  border-bottom:1px solid #FFF;
+  letter-spacing:30px;
+  padding-left:40px;
+  border-bottom:1px solid #C0C0C0;
+}
+/*需求类型已选择之后的样式*/
+.demand_type_already_chosen{
+  color:#39f;
+}

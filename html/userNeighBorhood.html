@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../public/swiper/dist/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/userNeighBorhood.css" />
+    <title>全部</title>
+  </head>
+  <body>
+    <header class="aui-bar aui-bar-nav app-user-nearby">全部</header>
+    <div class="app_tab">
+      <div class="swiper-container app_tab_swiper">
+        <div class="swiper-wrapper">
+          <div style="color:#39f" class="swiper-slide app_tab_swiper_li app_tab_swiper_li0">需求</div>
+          <div class="swiper-slide app_tab_swiper_li app_tab_swiper_li1">服务</div>
+          <div class="swiper-slide app_tab_swiper_li app_tab_swiper_li2">附近</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 具体的内容页面 -->
+    <div class="app_tab_page">
+      <div class="swiper-container app_tab_page_swiper">
+        <div class="swiper-wrapper">
+          <!-- 委托页 -->
+          <div class="swiper-slide app_tab_page_swiper_li app_tab_page_swiper_li0">
+            <section class="aui-content" id='app_tab_page_swiper_li0_node'></section>
+            <div class="no_msg">没有更多了</div>
+          </div>
+
+
+          <!-- 服务页 -->
+          <div class="swiper-slide app_tab_page_swiper_li app_tab_page_swiper_li1">
+            <section class="aui-content" id='app_tab_page_swiper_li1_node'></section>
+            <div class="no_msg">没有更多了</div>
+          </div>
+
+          <!-- 附近页 -->
+          <div class="swiper-slide app_tab_page_swiper_li app_tab_page_swiper_li2">
+
+            <!-- 附近分为服务和委托两种 -->
+            <div class="aui-tab" id="nearby_tab">
+                <div class="aui-tab-item aui-active">附近的需求</div>
+                <div class="aui-tab-item"><div></div>附近的服务</div>
+            </div>
+
+            <section class="aui-content" id='app_tab_page_swiper_li2_node'></section>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../script/aui-tab.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../public/swiper/dist/js/swiper.min.js"></script>
+  <script src="../script/userNeighBorhood.js"></script>
+</html>

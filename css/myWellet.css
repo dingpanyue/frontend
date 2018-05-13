@@ -1,0 +1,97 @@
+html,body{background-color: #fff;}
+/*绑定支付宝模态*/
+.bind_alipay_motai,.bind_bank_motai{
+  width:100%;
+  background-color: #fff;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:100;
+  display:none;
+}
+input[name="bind_alipay_num"]{
+  display:block;
+  border-bottom:1px solid #999;
+  width:90%;
+  height:40px;
+  margin:50px auto 0px;
+  font-size: 14px;
+}
+.bind_alipay_submit,.bind_bank_submit,.user_withdrawals_submit{
+  width:90%;
+  height:45px;
+  border-radius: 5px;
+  background-color: #39f;
+  text-align: center;
+  line-height: 45px;
+  color:#fff;
+  font-size:16px;
+  margin:20px auto 0px;
+}
+
+/*选择银行*/
+.select_bank{
+  width:90%;
+  margin:20px auto 0px;
+}
+.select_bank_ul{
+  width:100%;
+}
+.select_bank_ul li{
+  border:1px solid #888;
+  color:#888;
+  font-size:14px;
+  border-radius: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: baseline;
+}
+.bind_bank_motai_title{
+  width:90%;
+  height:40px;
+  margin:20px auto 0px;
+  text-align: left;
+  font-size:14px;
+  color:#333;
+  line-height:40px;
+}
+input[name="bind_bank_num"]{
+  display:block;
+  border-bottom:1px solid #999;
+  width:90%;
+  height:40px;
+  margin:50px auto 0px;
+  font-size: 14px;
+}
+
+/*提现*/
+.user_withdrawals{
+  width:100%;
+  height:200px;
+  background-color: #fff;
+  display:none;
+}
+.user_withdrawals_method{
+  width:100%;
+  height:40px;
+}
+.user_withdrawals_method > div{
+  width:48%;
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+  font-size:14px;
+  color:#999;
+  display: inline-block;
+  vertical-align: top;
+}
+input[name="withdrawals_money"]{
+  display:block;
+  border-bottom:1px solid #999;
+  width:90%;
+  height:40px;
+  margin:10px auto 0px;
+  font-size: 14px;
+}

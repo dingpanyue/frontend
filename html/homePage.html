@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../public/swiper/dist/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/homePage.css">
+    <title>首页</title>
+  </head>
+  <body>
+    <!-- 当定位出错的时候，显示一个刷新页面按钮 -->
+    <div class="refresh_this_page"></div>
+
+    <!-- 位置，消息 -->
+    <div id="appUserLocationCity"></div>
+
+    <div class="app_my_information_container">
+      <div class="app-my-information">
+        <img src="../image/icon/wodexiaoxi.png" class="app-my-information-icon" />
+        <!-- 新消息的标志 -->
+        <div class="aui-dot app-my-newsInformation-badge" id="appMyNewsInformationBadge"></div>
+      </div>
+    </div>
+
+    <!-- 轮播 -->
+    <div class="app_banner_contarner">
+      <div class="app_banner_position">
+        <div id="app_banner" class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="../image/slide/01.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../image/slide/02.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../image/slide/03.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../image/slide/04.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../image/slide/05.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 伪装搜索框 -->
+    <div class="app_disguise_search">输入您想查找的关键词...</div>
+
+    <!-- 分格导航 -->
+    <div class="lattice_nav_container">
+      <ul class="lattice_nav_ul"></ul>
+    </div>
+
+    <!-- 当前城市的最新需求 -->
+    <div class="app_new_demand_container">
+      <div class="app_new_demand_title">最新订单</div>
+      <ul class="app_new_demand_ul"></ul>
+      <div class="city_order_null">到底了</div>
+    </div>
+
+    <div class="app_disguise_search_bg"></div>
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../public/swiper/dist/js/swiper.min.js"></script>
+  <script src="../script/homePage.js"></script>
+</html>

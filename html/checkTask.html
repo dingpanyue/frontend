@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../public/swiper/dist/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/checkTask.css" />
+    <title>查看需求</title>
+  </head>
+
+  <body>
+    <!-- 头部信息 -->
+    <div class="page_header">
+      <header class="aui-bar aui-bar-nav page_header_color">
+          <a class="aui-pull-left aui-btn page_header_return">
+              <span class="aui-iconfont aui-icon-left"></span>返回
+          </a>
+          <div class="aui-title">查看需求</div>
+      </header>
+    </div>
+
+    <!-- 如果服务方上传了图片，则展示一个轮播 -->
+    <div class="xuqiu_focus_container">
+      <div class="swiper-container" id="xuqiu_focus">
+          <div class="swiper-wrapper" id="xuqiu_focus_wrapper">
+
+          </div>
+
+          <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- 需求标题 -->
+    <div class="xuqiu_title"></div>
+
+    <!-- 需求详情 -->
+    <div class="xuqiu_xiangqing"></div>
+
+    <!-- 需求金额和需求类型的弹性盒子 -->
+    <div class="xuqiu_money_type_flex">
+      <div class="xuqiu_type">
+        需求类型：<br/>
+        <span class="xuqiu_type_span"></span>
+      </div>
+      <div class="xuqiu_money">
+        需求金额：<span style="color:#f00;">￥</span>
+        <span class="xuqiu_money_span"></span>
+      </div>
+    </div>
+    <!-- 过期时间和状态 -->
+    <div class="guoqi_time">过期时间：<span class="guoqi_time_span"></span></div>
+    <div class="xuqiu_state">
+      <p>状态：<span class="user_order_state"></span></p>
+    </div>
+
+    <!-- 详细地址 -->
+    <div class="xiangxi_dizhi">
+      详细地址：
+      <span class="xiangxi_dizhi_span"></span>
+    </div>
+
+    <!-- 发布人信息标题 -->
+    <div class="fabu_people_msg_title">发布人信息</div>
+
+    <!-- 发布人信息 -->
+    <div class="fabu_people_msg">
+      <div class="fabu_people_msg_img">
+        <img src="../image/icon/noimage.png" />
+      </div>
+      <div class="fabu_people_msg_content">
+        <p>昵称：<span class="user_name"></span></p>
+        <p>发布日期：<span class="user_release_time"></span></p>
+        <p>发布地区：<span class="user_city"></span></p>
+        <p>信誉度：<span class="user_reputation"></span></p>
+      </div>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="caozuo_btn">
+      <div class="caozuo_btn_chat">聊一聊</div>
+      <div class="caozuo_btn_accept">现在接单</div>
+    </div>
+
+
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../public/swiper/dist/js/swiper.min.js"></script>
+  <script src="../script/checkTask.js"></script>
+</html>

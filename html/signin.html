@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+  <link rel="stylesheet" type="text/css" href="../css/signin.css">
+  <title>登录</title>
+</head>
+<body>
+
+  <!-- 巨幕 -->
+  <div class="app-signin-jumbotron">
+    <div class="app-signin-jumbotron-title">您好，</div>
+    <h3>
+      欢迎您来到行行通， <span class="app-signin-jumbotron-span">立即注册</span><span class="app-top-bar-btn">/忘记密码？</span>
+    </h3>
+  </div>
+
+
+  <!-- 登录表单 -->
+  <div class="app-signinInput-container">
+    <p class="userNameP">
+      <input type="text" placeholder="请输入用户名/手机号/邮箱" id="userName" class="userName" name="userName" maxlength="11" />
+    </p>
+    <p class="userPswP">
+      <input type="password" placeholder="请输入密码" id="userPsw" class="userPsw" name="userPsw" maxlength="16"/>
+    </p>
+  </div>
+
+  <!-- 登录按钮 -->
+  <div class="app-signin-submit">登录</div>
+
+  <!-- 找回密码页面模态 -->
+  <div class="PasswordBack">
+
+    <!-- 找回密码的header -->
+    <div class="PasswordBack-header">
+      <!-- 左边返回按钮 -->
+      <div class="PasswordBack-header-returm">返回登录</div>
+      <!-- 中间Tite -->
+      <div class="PasswordBack-header-title">找回密码</div>
+    </div>
+
+
+    <!-- 第一步的容器 -->
+    <div class="app-input-phone-container">
+      <p class="user-phone-p">
+        <input type="text" placeholder="请输入手机号" id="user-phone" name="user-phone" class="user-phone" maxlength="11" />
+      </p>
+
+      <div class="user-back-code-p">
+        <input type="text" placeholder="请输入验证码" id="user-back-code" name="user-back-code" class="user-back-code" maxlength="6" />
+        <div class="user-back-code-btn">获取验证码</div>
+      </div>
+
+      <div class="app-new-psw-p">
+        <input type="password" id="app-new-psw" name="app-new-psw" class="app-new-psw" placeholder="输入新密码" maxlength="16" />
+      </div>
+      <div class="app-confirm-new-psw-p">
+        <input type="password" id="app-confirm-new-psw" name="app-confirm-new-psw" class="app-confirm-new-psw" placeholder="确认新密码" maxlength="16" />
+      </div>
+      <div class="app-newPsw-submit">提交</div>
+    </div>
+
+
+
+
+  </div>
+
+
+</body>
+
+
+<script src="../script/api.js"></script>
+<script src="../public/js/app_public.js"></script>
+<script src="../script/signin.js"></script>
+</html>

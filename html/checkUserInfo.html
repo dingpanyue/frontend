@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/checkUserInfo.css" />
+    <title>用户信息</title>
+  </head>
+
+  <body>
+    <!-- 返回按钮 -->
+    <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn" id="page_header_return">
+            <span class="aui-iconfont aui-icon-left "></span>返回
+        </a>
+        <div class="aui-title">他的主页</div>
+        <a class="aui-pull-right aui-btn" id="chat_btn">
+            聊天<span class="aui-iconfont aui-icon-right"></span>
+        </a>
+    </header>
+
+    <!-- 用户头部信息 -->
+    <div class="user_info_bg"></div>
+
+    <!-- 用户信息主体 -->
+    <div class="user_info_body">
+      <div class="user_info_header">
+        <div class="user_info_image_container">
+          <div class="user_info_image"></div>
+        </div>
+
+        <div class="user_info_text">
+          <div class="user_info_name"></div>
+          <div class="user_info_phone"></div>
+        </div>
+      </div>
+
+      <div class="user_info_body_describe"></div>
+
+      <div class="user_oneself_msg">
+        <div id="user_service_fen" class="aui-label aui-label-info"></div>
+        <div id="user_entrust_fen" class="aui-label aui-label-primary"></div>
+        <div id="user_isAuthentication" class="aui-label aui-label-success"></div>
+      </div>
+
+      <!-- 别人对他的评价 -->
+      <div class="check_comment_btn">查看他人对他的评价</div>
+
+
+      <!-- 用户擅长的技能 -->
+      <div class="user_talents">
+        <div class="user_talents_title">擅长的领域：</div>
+        <div class="user_talents_container">
+
+        </div>
+      </div>
+
+      <!-- 展示的九张图片 -->
+      <div class="user_exhibition_img_container">
+        <div class="user_exhibition_img_title">他的展示：</div>
+        <div class="user_exhibition_img_list"></div>
+      </div>
+
+
+    </div>
+
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../public/js/app_public.js"></script>
+  <script src="../script/checkUserInfo.js"></script>
+</html>

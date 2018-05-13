@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../public/swiper/dist/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/orderEntrustDetails.css">
+    <title>订单详情</title>
+  </head>
+  <body>
+    <div class="App_container">
+
+      <div class="app_header">
+        <header style="background-color:#333;" class="aui-bar aui-bar-nav">
+            <a class="aui-pull-left aui-btn" id="return_prev_page">
+                <span class="aui-iconfont aui-icon-left "></span>返回
+            </a>
+            <div class="aui-title">订单详情</div>
+        </header>
+      </div>
+
+      <!-- 如果服务方上传了图片，则展示一个轮播 -->
+      <div class="xuqiu_focus_container">
+        <div class="swiper-container" id="xuqiu_focus">
+            <div class="swiper-wrapper" id="xuqiu_focus_wrapper">
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- 需求标题 -->
+      <div class="xuqiu_title"></div>
+
+      <!-- 需求详情 -->
+      <div class="xuqiu_xiangqing"></div>
+
+      <!-- 需求金额和需求类型的弹性盒子 -->
+      <div class="xuqiu_money_type_flex">
+        <div class="xuqiu_type">
+          需求类型：<br/>
+          <span class="xuqiu_type_span"></span>
+        </div>
+        <div class="xuqiu_money">
+          需求金额：<span style="color:#f00;">￥</span>
+          <span class="xuqiu_money_span"></span>
+        </div>
+      </div>
+      <!-- 过期时间和状态 -->
+      <div class="guoqi_time">过期时间：<span class="guoqi_time_span"></span></div>
+      <div class="xuqiu_state">
+        <p>状态：<span class="user_order_state"></span></p>
+      </div>
+
+      <!-- 详细地址 -->
+      <div class="xiangxi_dizhi">
+        详细地址：
+        <span class="xiangxi_dizhi_span"></span>
+      </div>
+      <!-- 发布人信息标题 -->
+      <div class="fabu_people_msg_title">发布人信息</div>
+
+      <!-- 发布人信息 -->
+      <div class="fabu_people_msg">
+        <div class="fabu_people_msg_img">
+          <img src="../image/icon/noimage.png" />
+        </div>
+        <div class="fabu_people_msg_content">
+          <p>昵称：<span class="user_name"></span></p>
+          <p>发布日期：<span class="user_release_time"></span></p>
+          <p>发布地区：<span class="user_city"></span></p>
+          <p>信誉度：<span class="user_reputation"></span></p>
+
+        </div>
+      </div>
+
+      <!-- 这条需求的历史记录 -->
+      <div class="this_xuqiu_record"><ul class="operation_list_ul"></ul></div>
+
+      <!-- 未支付状态：支付按钮 -->
+      <div class="payment_order_btn">立即支付</div>
+
+      <!-- 取消支付 -->
+      <div class="cancel_pay_btn">取消支付</div>
+
+      <!-- 选择服务方 -->
+      <div class="select_service">
+        <div class="select_service_title">服务方候选列表</div>
+        <ul class="select_service_ul"></ul>
+      </div>
+
+      <!-- 确认完成和拒绝完成 -->
+      <div class="confirmation_and_rejection">
+        <div class="confirmation_btn">确认完成</div>
+        <div class="rejection_btn">拒绝完成</div>
+      </div>
+
+      <!-- 退款 -->
+      <div class="refund_btn">退款</div>
+
+      <!-- 选择支付方式弹层 -->
+      <div class="select_pay_method_mask"></div>
+      <div class="select_pay_method">
+
+        <!-- 订单详情，就是显示订单金额 -->
+        <div class="order_money_container">
+          <div class="order_money_view">
+            <div class="order_money_view_left">需付款</div>
+            <div class="order_money_view_right"></div>
+          </div>
+        </div>
+
+
+
+        <!-- 支付方式 -->
+        <div class="select_pay_method_title">选择支付方式</div>
+
+        <div class="select_pay_balance">
+          <label class="select_pay_balance_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style">
+                <img class="pay_iocn_balance_img" src="../image/icon/balance.png" alt="余额支付" />
+                <span>余额支付</span>
+                <span class="pay_iocn_balance_span"></span>
+              </div>
+
+
+            </span>
+            <input method="balance" id="select_pay_balance_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" checked />
+          </label>
+        </div>
+
+        <div class="select_pay_alipay">
+          <label class="select_pay_alipay_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style pay_iocn_alipay">
+                <img class="pay_iocn_alipay_img" src="../image/icon/zhifubao.png" alt="支付宝支付" />
+                <span>支付宝支付</span>
+              </div>
+
+            </span>
+            <input method="alipay" id="select_pay_alipay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+          </label>
+        </div>
+
+        <div class="select_pay_wx">
+          <label class="select_pay_wx_label">
+            <span class="pay_iocn_div">
+              <div class="zhifu_icon_public_style pay_iocn_wx">
+                <img class="pay_iocn_wx_img" src="../image/icon/weixin.png" alt="微信支付" />
+                <span>微信支付</span>
+              </div>
+
+            </span>
+            <input method="wx" id="select_pay_wxpay_ipt" class="aui-radio public_style_ipt" type="radio" name="radio" />
+          </label>
+        </div>
+
+        <div class="confirm_pay_btn">立即支付</div>
+      </div>
+    </div>
+
+    <!-- 支付密码输入的模态层 -->
+    <div class="user_pay_pasw_mask"></div>
+    <div class="user_pay_pasw_input_div">
+      <div class="user_pay_pasw_input_title">输入密码</div>
+      <input type="password" maxlength="6" id="user_pay_pasw_input" name="user_pay_pasw_input" class="user_pay_pasw_input" />
+    </div>
+
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../script/api.js"></script>
+  <script src="../script/aui-toast.js"></script>
+  <script src="../public/swiper/dist/js/swiper.min.js"></script>
+  <script src="../script/orderEntrustDetails.js"></script>
+</html>
